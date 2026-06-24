@@ -1,10 +1,11 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { normaliseExperimentConfig as normaliseStrictExperimentConfig } from "../src/core/config";
 import { parseCsv } from "../src/core/csv";
 import {
   buildExperimentModel,
+  loadExperimentModel,
   parseLocations,
   parseTrials,
 } from "../src/core/experiment";
@@ -29,6 +30,10 @@ function normaliseExperimentConfig(
 function readFixtureCsv(filename: string) {
   return parseCsv(readFileSync(fixturePath(filename), "utf8"));
 }
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe("CSV parsing", () => {
   it("parses quoted fields with commas", () => {
@@ -88,23 +93,71 @@ describe("experiment model fixtures", () => {
   it("loads locations and trials through an experiment file loader", async () => {
     const config = normaliseExperimentConfig({});
     const requestedPaths: string[] = [];
-    const model = await import("../src/core/experiment").then(({ loadExperimentModel }) =>
-      loadExperimentModel(config, {
-        loadAssetUrl: async (path: string) => `asset:${path}`,
-        loadTextFile: async (path: string) => {
-          requestedPaths.push(path);
-          if (path === "locations.csv") {
-            return "location,x,y\nA,0,0\nB,0,1\nC,1,1\n";
-          }
-          if (path === "trials.csv") {
-            return "trial_id,location,direction,target\n1,A,B,C\n";
-          }
-          throw new Error(path);
-        },
-      })
-    );
+    const model = await loadExperimentModel(config, {
+      loadAssetUrl: async (path: string) => `asset:${path}`,
+      loadTextFile: async (path: string) => {
+        requestedPaths.push(path);
+        if (path === "locations.csv") {
+          return "location,x,y\nA,0,0\nB,0,1\nC,1,1\n";
+        }
+        if (path === "trials.csv") {
+          return "trial_id,location,direction,target\n1,A,B,C\n";
+        }
+        throw new Error(path);
+      },
+    });
 
     expect(requestedPaths.sort()).toEqual(["locations.csv", "trials.csv"]);
     expect(model.trials).toHaveLength(1);
+  });
+
+  it("reports missing browser locations files before CSV parsing", async () => {
+    const config = normaliseExperimentConfig({ locationsFile: "location.csv" });
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: string | URL | Request) => {
+        const url = String(input);
+        if (url.endsWith("/trials.csv")) {
+          return new Response("trial_id,location,direction,target\n1,A,B,C\n", {
+            headers: { "content-type": "text/csv" },
+          });
+        }
+        return new Response("<!doctype html><html></html>", {
+          headers: { "content-type": "text/html" },
+        });
+      })
+    );
+
+    await expect(
+      loadExperimentModel(
+        config,
+        "http://127.0.0.1:5173/assets/examples/basic/config.json"
+      )
+    ).rejects.toThrow("Could not load locations file: location.csv.");
+  });
+
+  it("reports missing browser trials files before CSV parsing", async () => {
+    const config = normaliseExperimentConfig({ trialsFile: "trial.csv" });
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: string | URL | Request) => {
+        const url = String(input);
+        if (url.endsWith("/locations.csv")) {
+          return new Response("location,x,y\nA,0,0\nB,0,1\nC,1,1\n", {
+            headers: { "content-type": "text/csv" },
+          });
+        }
+        return new Response("<!doctype html><html></html>", {
+          headers: { "content-type": "text/html" },
+        });
+      })
+    );
+
+    await expect(
+      loadExperimentModel(
+        config,
+        "http://127.0.0.1:5173/assets/examples/basic/config.json"
+      )
+    ).rejects.toThrow("Could not load trials file: trial.csv.");
   });
 });

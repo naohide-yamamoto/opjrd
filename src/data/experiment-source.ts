@@ -115,7 +115,9 @@ function createTauriExperimentSource(
     configPath: localConfigDisplayPath(configPath),
     fileLoader: {
       loadAssetUrl: (path: string) =>
-        readTauriExperimentAssetFile(configPath, path),
+        readTauriExperimentAssetFile(configPath, path).catch(() => {
+          throw new Error(`Could not load stimulus image: ${path}.`);
+        }),
       loadTextFile: (path: string) =>
         readTauriExperimentTextFile(configPath, path),
     },

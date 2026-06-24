@@ -6,6 +6,10 @@
 
 - Improved the macOS DMG window with a drag-to-Applications background.
 
+### Fixed
+
+- Improved missing-file errors for locations, trials, and stimulus image files.
+
 ## 0.1.1 - 2026-06-24
 
 ### Added

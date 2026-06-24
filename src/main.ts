@@ -1107,7 +1107,29 @@ async function runExperiment(experimentSource: ExperimentSource): Promise<void> 
   await jsPsych.run(timeline as Parameters<typeof jsPsych.run>[0]);
 }
 
+async function startTauriInitialExperimentFlow(
+  initialStatus = ""
+): Promise<void> {
+  let status = initialStatus;
+
+  for (;;) {
+    const source = await requestTauriExperimentSource(status);
+    try {
+      await runExperiment(source);
+      return;
+    } catch (error) {
+      console.error(error);
+      cleanupTrialRunPresentation();
+      status = errorMessage(error, "Could not start experiment.");
+    }
+  }
+}
+
 async function startInitialExperimentFlow(): Promise<void> {
+  if (shouldUseTauriLocalConfig(window.location.search)) {
+    await startTauriInitialExperimentFlow();
+    return;
+  }
   setStatus("Loading OPJRD...");
   await runExperiment(await loadExperimentSource());
 }

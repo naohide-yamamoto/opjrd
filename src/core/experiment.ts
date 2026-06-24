@@ -19,6 +19,12 @@ export interface ExperimentFileLoader {
   loadAssetUrl: (path: string) => Promise<string>;
 }
 
+class ExperimentFileUnavailableError extends Error {
+  constructor() {
+    super("");
+  }
+}
+
 export function resolveRelativeUrl(path: string, baseUrl: string): string {
   return new URL(path, baseUrl).toString();
 }
@@ -155,11 +161,29 @@ export function createBrowserExperimentFileLoader(
       const url = resolveRelativeUrl(path, configUrl);
       const response = await fetch(url, { cache: "no-store" });
       if (!response.ok) {
-        throw new Error(`${response.status}`);
+        throw new ExperimentFileUnavailableError();
       }
-      return response.text();
+      if (isHtmlResponse(response)) {
+        throw new ExperimentFileUnavailableError();
+      }
+      const text = await response.text();
+      if (looksLikeHtmlDocument(text)) {
+        throw new ExperimentFileUnavailableError();
+      }
+      return text;
     },
   };
+}
+
+function isHtmlResponse(response: Response): boolean {
+  return (
+    response.headers.get("content-type")?.toLowerCase().includes("text/html") ??
+    false
+  );
+}
+
+function looksLikeHtmlDocument(text: string): boolean {
+  return /^\s*(?:<!doctype html\b|<html\b)/iu.test(text);
 }
 
 async function loadRequiredExperimentText(
@@ -170,7 +194,10 @@ async function loadRequiredExperimentText(
   try {
     return await fileLoader.loadTextFile(path);
   } catch (error) {
-    const detail = error instanceof Error ? ` ${error.message}` : "";
+    const detail =
+      error instanceof Error && error.message.length > 0
+        ? ` ${error.message}`
+        : "";
     throw new Error(`Could not load ${label} file: ${path}.${detail}`);
   }
 }

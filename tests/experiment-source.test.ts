@@ -148,6 +148,29 @@ describe("experiment source adapters", () => {
     });
   });
 
+  it("reports missing Tauri stimulus image paths with user-facing wording", async () => {
+    vi.mocked(invoke).mockImplementation(async (command, args) => {
+      const request = args as { relativePath: string | null };
+      if (request.relativePath === null) {
+        return JSON.stringify({
+          experimentName: "Local OPJRD experiment",
+          locationsFile: "locations.csv",
+          trialsFile: "trials.csv",
+        });
+      }
+      if (command === "read_experiment_asset_file") {
+        throw new Error("Could not resolve experiment file path.");
+      }
+      throw new Error(String(command));
+    });
+
+    const source = await loadTauriExperimentSource("/tmp/opjrd/config.json");
+
+    await expect(
+      source.fileLoader.loadAssetUrl("assets/object-d.svg")
+    ).rejects.toThrow("Could not load stimulus image: assets/object-d.svg.");
+  });
+
   it("can load a Tauri config for editing when file extensions need fixing", async () => {
     vi.mocked(invoke).mockImplementation(async (command, args) => {
       const request = args as { relativePath: string | null };
