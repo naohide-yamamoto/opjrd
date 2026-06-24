@@ -14,7 +14,7 @@ name = "opjrd_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "=2.6.1", features = [] }
+tauri-build = { version = "=2.6.3", features = [] }
 
 [dependencies]
 base64 = { version = "=0.22.1" }
