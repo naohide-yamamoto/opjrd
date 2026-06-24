@@ -25,7 +25,7 @@
   "dependencies": {
     "@jspsych/plugin-html-button-response": "2.1.0",
     "@jspsych/plugin-html-keyboard-response": "2.1.0",
-    "@tauri-apps/api": "2.11.0",
+    "@tauri-apps/api": "2.11.1",
     "@tauri-apps/plugin-dialog": "2.7.1",
     "@tauri-apps/plugin-fs": "2.5.1",
     "jspsych": "8.2.3"
