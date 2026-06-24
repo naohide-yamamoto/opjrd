@@ -88,6 +88,11 @@ DMG with `.sha256` appended, for example:
 OPJRD_0.1.1_universal.dmg.sha256
 ```
 
+The DMG window layout and drag-to-Applications background are configured in
+`src-tauri/tauri.conf.json` under `bundle.macOS.dmg`. The editable artwork is
+`src-tauri/dmg-background.svg`; Tauri uses the generated
+`src-tauri/dmg-background.png` file during DMG bundling.
+
 For public distribution, use the signed and notarised release workflow below
 rather than distributing an unsigned development build.
 

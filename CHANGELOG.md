@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Improved the macOS DMG window with a drag-to-Applications background.
+
 ## 0.1.1 - 2026-06-24
 
 ### Added
