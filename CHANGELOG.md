@@ -4,6 +4,7 @@
 
 ### Changed
 
+- Documented macOS Firefox smoke-test results.
 - Improved the macOS DMG window with a drag-to-Applications background.
 
 ### Fixed

@@ -21,11 +21,11 @@ role objects as displayed on a trial interface.
 
 ## Current Status
 
-The first public release scope is macOS browser use in recent Chrome and
-Safari, plus a signed and notarised packaged macOS app. The macOS packaged app
+The current release scope is macOS browser use in recent Chrome, Safari, and
+Firefox, plus a signed and notarised packaged macOS app. The macOS packaged app
 has been tested on Apple Silicon; Intel Mac validation is pending and should be
-completed before OPJRD is used for real experiments on an Intel Mac. The
-current browser core includes:
+completed before OPJRD is used for real experiments on an Intel Mac. The current
+browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core
