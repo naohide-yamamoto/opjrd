@@ -1,0 +1,45 @@
+{
+  "instructions": {
+    "readyText": "Press the space bar to begin.",
+    "finishTitle": "Finished",
+    "finishText": "Click below to save this session.",
+    "finishButtonLabel": "Save"
+  },
+  "trial": {
+    "atLabel": "At",
+    "facingLabel": "Facing",
+    "placeLabel": "Place",
+    "pointToLabel": "Point to"
+  },
+  "status": {
+    "savedDownload": "Data downloaded locally as JSON.",
+    "savedDownloadWithCsv": "Data downloaded locally as JSON and CSV.",
+    "savedTauri": "Data saved locally as JSON.",
+    "savedTauriWithCsv": "Data saved locally as JSON and CSV.",
+    "savedJatos": "Data submitted to JATOS.",
+    "saving": "Saving data...",
+    "saveCancelled": "Save cancelled. Click Save to choose an output folder.",
+    "saveFailed": "Data save failed."
+  },
+  "metadata": {
+    "title": "Participant details",
+    "continueButtonLabel": "Continue",
+    "fieldRequiredMessage": "Enter a value.",
+    "selectionRequiredMessage": "Select an option.",
+    "freeTextRequiredMessage": "Enter the term.",
+    "wholeNumberRequiredMessage": "Enter a whole number greater than or equal to 0."
+  },
+  "postSave": {
+    "runSameConfigButtonLabel": "Run another session",
+    "selectDifferentConfigButtonLabel": "Select different config",
+    "backToInitialScreenButtonLabel": "Back to initial screen",
+    "browserConfigPrompt": "Enter a config path or URL.",
+    "browserConfigPathLabel": "Config path or URL",
+    "browserConfigPathPlaceholder": "/assets/examples/basic/config.json",
+    "loadConfigButtonLabel": "Load config",
+    "cancelButtonLabel": "Cancel",
+    "noConfigPathMessage": "Enter a config path or URL.",
+    "loadConfigFailed": "Could not load config.",
+    "noConfigSelected": "No config selected."
+  }
+}

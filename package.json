@@ -1,0 +1,46 @@
+{
+  "name": "opjrd",
+  "version": "0.1.1",
+  "description": "Software for testing spatial layout memory using object placement and judgement-of-relative-direction tasks.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "tauri:build:mac": "tauri build --target universal-apple-darwin --bundles app",
+    "tauri:build:mac:dmg": "tauri build --target universal-apple-darwin --bundles app,dmg && npm run release:checksum:mac-dmg",
+    "tauri:build:mac:apple-silicon": "tauri build --target aarch64-apple-darwin --bundles app",
+    "tauri:build:mac:intel": "tauri build --target x86_64-apple-darwin --bundles app",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . && npm run privacy:scan",
+    "privacy:scan": "node scripts/privacy-scan.mjs",
+    "release:checksum:mac-dmg": "node scripts/write-dmg-checksums.mjs"
+  },
+  "dependencies": {
+    "@jspsych/plugin-html-button-response": "2.1.0",
+    "@jspsych/plugin-html-keyboard-response": "2.1.0",
+    "@tauri-apps/api": "2.11.0",
+    "@tauri-apps/plugin-dialog": "2.7.1",
+    "@tauri-apps/plugin-fs": "2.5.1",
+    "jspsych": "8.2.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@tauri-apps/cli": "2.11.1",
+    "@types/node": "25.6.0",
+    "eslint": "9.39.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.59.2",
+    "vite": "8.0.16",
+    "vitest": "4.1.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

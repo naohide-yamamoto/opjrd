@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="field" x1="228" y1="210" x2="800" y2="820" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8E8EE" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#87A3AF" stop-opacity="0.58"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="64" y="64" width="896" height="896" rx="208" fill="#0B1B2A"/>
+
+  <circle cx="512" cy="512" r="360" fill="none" stroke="url(#field)" stroke-width="40"/>
+  <path d="M512 132 V892 M132 512 H892" stroke="#4C7284" stroke-width="28" stroke-linecap="round" opacity="0.7"/>
+  <path d="M243 243 L781 781 M781 243 L243 781" stroke="#3B5F70" stroke-width="22" stroke-linecap="round" opacity="0.56"/>
+
+  <g transform="translate(0 -30)">
+    <path d="M332.7 699.5 L513.1 663.5 L520.1 698.8 L641.7 613.3 L496.6 581.1 L503.6 616.4 L323.3 652.5 Z" fill="#63D7CA"/>
+    <path d="M328 676 L548 326" fill="none" stroke="#F0A24A" stroke-width="34" stroke-linecap="round" stroke-dasharray="8 52"/>
+
+    <g transform="translate(328 676)">
+      <circle r="76" fill="#F8FBFC" stroke="#63D7CA" stroke-width="24"/>
+    </g>
+
+    <g transform="translate(548 326)">
+      <circle r="76" fill="#F8FBFC" stroke="#F0A24A" stroke-width="24"/>
+    </g>
+
+    <g transform="translate(728 596)">
+      <circle r="76" fill="#F8FBFC" stroke="#9DB8FF" stroke-width="24"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+# Dependencies and package-manager state
+node_modules/
+.npm/
+
+# Build and test output
+dist/
+coverage/
+.vite/
+
+# Local environment and editor state
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+
+# Local OPJRD run output
+results/
+exports/
+logs/
+*.log
+
+# Desktop packaging output, added before the Tauri shell exists
+src-tauri/target/
+src-tauri/gen/

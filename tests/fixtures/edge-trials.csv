@@ -1,0 +1,4 @@
+trial_id,location,direction,target
+north_to_south,North,South,East
+short_ab,Origin,NearEast,North
+negative_coords,Negative,West,South

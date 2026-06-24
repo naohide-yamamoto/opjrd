@@ -1,0 +1,77 @@
+{
+  "session_id": "golden-jrd-session-00000001",
+  "app_name": "Object Placement and Judgement of Relative Direction Program",
+  "app_version": "0.1.1",
+  "experiment_name": "OPJRD Golden JRD",
+  "task_mode": "jrd",
+  "locale": "en-AU",
+  "timestamp_iso": "2026-06-01T00:05:00.000Z",
+  "timestamp_local": "2026-06-01T10:05:00.000+10:00",
+  "config_path": "tests/fixtures/golden/jrd/config.json",
+  "config_hash": "golden-jrd-config-hash",
+  "zero_direction": {
+    "x": 0,
+    "y": 1
+  },
+  "runtime": {
+    "runtime_environment": "browser",
+    "operating_system_name": "macOS",
+    "operating_system_version": "26.4.0",
+    "operating_system_version_source": "user_agent_data",
+    "browser_name": "Chrome",
+    "browser_version": "148.0.7778.168",
+    "browser_version_source": "user_agent_data",
+    "browser_engine": "Blink",
+    "webview_or_browser_version": "148.0.7778.168",
+    "user_agent": "OPJRD golden fixture user agent",
+    "platform": "MacIntel",
+    "architecture": "arm",
+    "architecture_source": "user_agent_data",
+    "bitness": "64",
+    "user_agent_data_platform": "macOS",
+    "user_agent_data_platform_version": "26.4.0",
+    "user_agent_data_mobile": false,
+    "browser_language": "en-AU"
+  },
+  "participant_metadata": {
+    "provider": "manual",
+    "values": {
+      "participant_id": "P-GOLD-JRD",
+      "age": 31,
+      "gender": "Man/Male",
+      "condition": "Condition 2",
+      "group": "Group B"
+    }
+  },
+  "rows": [
+    {
+      "task_mode": "jrd",
+      "trial_id": "jrd-golden-1",
+      "location": "A",
+      "direction": "B",
+      "target": "C",
+      "latency_start_event": "a_onset",
+      "a_onset_msec": 200,
+      "b_onset_msec": 800,
+      "c_onset_msec": 1200,
+      "response_finalisation_msec": 1800,
+      "resp_latency_msec": 1600,
+      "trial_start_gate_enabled": false,
+      "trial_gate_warning_shown": false,
+      "imagined_heading": 4.71238898038469,
+      "imagined_heading_deg": 270,
+      "true_angle": 0.7853981633974492,
+      "true_angle_deg": 45.00000000000005,
+      "estimated_angle": 1.5707963267948966,
+      "estimated_angle_deg": 90,
+      "angular_error_signed": 0.7853981633974474,
+      "angular_error_signed_deg": 44.99999999999995,
+      "angular_error_absolute": 0.7853981633974474,
+      "angular_error_absolute_deg": 44.99999999999995,
+      "pointer_x": 4,
+      "pointer_y": 0,
+      "pointer_moved": true,
+      "finalisation_method": "click"
+    }
+  ]
+}

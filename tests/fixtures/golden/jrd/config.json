@@ -1,0 +1,35 @@
+{
+  "experimentName": "OPJRD Golden JRD",
+  "taskMode": "jrd",
+  "locale": "en-AU",
+  "locationsFile": "locations.csv",
+  "trialsFile": "trials.csv",
+  "randomiseTrials": false,
+  "zeroDirection": {
+    "x": 0,
+    "y": 1
+  },
+  "timing": {
+    "latencyStartEvent": "a_onset"
+  },
+  "response": {
+    "abDistance": 4,
+    "trialStartGate": {
+      "enabled": false
+    }
+  },
+  "save": {
+    "csvEnabled": true,
+    "filenameTemplate": "{experimentName}_{participant_id}_{session_id}"
+  },
+  "participantMetadata": {
+    "provider": "manual",
+    "manualValues": {
+      "participant_id": "P-GOLD-JRD",
+      "age": 31,
+      "gender": "Man/Male",
+      "condition": "Condition 2",
+      "group": "Group B"
+    }
+  }
+}
