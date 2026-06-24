@@ -1,0 +1,39 @@
+{
+  "experimentName": "OPJRD Golden Object Placement",
+  "taskMode": "object_placement",
+  "locale": "en-AU",
+  "locationsFile": "locations.csv",
+  "trialsFile": "trials.csv",
+  "randomiseTrials": false,
+  "zeroDirection": {
+    "x": 0,
+    "y": 1
+  },
+  "timing": {
+    "latencyStartEvent": "c_onset"
+  },
+  "response": {
+    "abDistance": 4,
+    "objectPlacement": {
+      "finalisationKey": "space",
+      "cInitialPosition": {
+        "x": 0,
+        "y": 4.75
+      }
+    }
+  },
+  "save": {
+    "csvEnabled": true,
+    "filenameTemplate": "{experimentName}_{participant_id}_{session_id}"
+  },
+  "participantMetadata": {
+    "provider": "manual",
+    "manualValues": {
+      "participant_id": "P-GOLD-OP",
+      "age": 30,
+      "gender": "Woman/Female",
+      "condition": "Condition 1",
+      "group": "Group A"
+    }
+  }
+}

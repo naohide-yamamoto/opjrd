@@ -1,0 +1,5 @@
+trial_id,location,direction,target
+1,A,B,C
+2,B,A,C
+3,A,C,B
+4,D,E,A

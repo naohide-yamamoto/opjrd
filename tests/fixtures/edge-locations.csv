@@ -1,0 +1,8 @@
+location,x,y
+North,0,10
+East,10,0
+South,0,-10
+West,-10,0
+Origin,0,0
+NearEast,0.01,0
+Negative,-4,-3

@@ -1,0 +1,45 @@
+{
+  "instructions": {
+    "readyText": "スペースキーを押して実験を開始してください。",
+    "finishTitle": "終了",
+    "finishText": "下のボタンをクリックして、このセッションのデータを保存してください。",
+    "finishButtonLabel": "保存"
+  },
+  "trial": {
+    "atLabel": "にいます",
+    "facingLabel": "が正面にあります",
+    "placeLabel": "を正しい位置に置いてください",
+    "pointToLabel": "の方向を指してください"
+  },
+  "status": {
+    "savedDownload": "データ（JSONファイル）をダウンロードしました。",
+    "savedDownloadWithCsv": "データ（JSONファイルとCSVファイル）をダウンロードしました。",
+    "savedTauri": "データ（JSONファイル）を保存しました。",
+    "savedTauriWithCsv": "データ（JSONファイルとCSVファイル）を保存しました。",
+    "savedJatos": "データをJATOSに送信しました。",
+    "saving": "データを保存しています...",
+    "saveCancelled": "データ保存がキャンセルされました。保存先フォルダを選択するには、もう一度保存をクリックしてください。",
+    "saveFailed": "データ保存に失敗しました。"
+  },
+  "metadata": {
+    "title": "被験者情報",
+    "continueButtonLabel": "続ける",
+    "fieldRequiredMessage": "値を入力してください。",
+    "selectionRequiredMessage": "選択肢を選んでください。",
+    "freeTextRequiredMessage": "用語を入力してください。",
+    "wholeNumberRequiredMessage": "0以上の整数を入力してください。"
+  },
+  "postSave": {
+    "runSameConfigButtonLabel": "同じ設定でもう一度実行",
+    "selectDifferentConfigButtonLabel": "別の設定を選択",
+    "backToInitialScreenButtonLabel": "初期画面に戻る",
+    "browserConfigPrompt": "設定ファイルのパスまたはURLを入力してください。",
+    "browserConfigPathLabel": "設定ファイルのパスまたはURL",
+    "browserConfigPathPlaceholder": "/assets/examples/basic/config.json",
+    "loadConfigButtonLabel": "設定を読み込む",
+    "cancelButtonLabel": "キャンセル",
+    "noConfigPathMessage": "設定ファイルのパスまたはURLを入力してください。",
+    "loadConfigFailed": "設定ファイルを読み込めませんでした。",
+    "noConfigSelected": "設定ファイルが選択されていません。"
+  }
+}

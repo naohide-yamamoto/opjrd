@@ -1,0 +1,119 @@
+{
+  "appName": "Object Placement and Judgement of Relative Direction Program",
+  "experimentName": "OPJRD JRD fixture",
+  "taskMode": "jrd",
+  "locale": "en-AU",
+  "locationsFile": "locations.csv",
+  "trialsFile": "trials.csv",
+  "zeroDirection": {
+    "x": 0,
+    "y": 1
+  },
+  "randomiseTrials": false,
+  "timing": {
+    "aToBDelayMsec": 1000,
+    "bToCDelayMsec": 500,
+    "latencyStartEvent": "a_onset",
+    "interTrialIntervalMsec": 750,
+    "firstTrialStartDelayMsec": 1000
+  },
+  "response": {
+    "abDistance": 4,
+    "layoutRadius": 6,
+    "canvas": {
+      "jrd": {
+        "shape": "square",
+        "sizePx": 760,
+        "visible": true
+      }
+    },
+    "trialStartGate": {
+      "enabled": true,
+      "label": "Start",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "widthPx": null,
+      "heightPx": null,
+      "warningEnabled": true,
+      "warningDelayMsec": 5000,
+      "warningMessage": "Please click the {label} button to begin a trial."
+    },
+    "feedback": {
+      "colour": "#0b5fff",
+      "durationMsec": 1000
+    },
+    "text": {
+      "objectLabels": {
+        "colour": "#101828",
+        "sizePx": 48,
+        "fontFamily": "\"IBM Plex Sans\", Inter, system-ui, sans-serif"
+      },
+      "supportLabels": {
+        "colour": "#475467",
+        "sizePx": 28,
+        "fontFamily": "\"IBM Plex Sans\", Inter, system-ui, sans-serif"
+      },
+      "supportLabelOffsets": {
+        "at": {
+          "x": 0,
+          "y": 1
+        },
+        "facing": {
+          "x": 0,
+          "y": 1
+        },
+        "place": {
+          "x": 0,
+          "y": 0.85
+        },
+        "pointTo": {
+          "x": 0,
+          "y": 1
+        }
+      }
+    },
+    "stimuli": {
+      "mode": "text",
+      "imageSizePx": 30,
+      "images": {
+        "A": "assets/object-a.svg",
+        "B": "assets/object-b.svg",
+        "C": "assets/object-c.svg"
+      }
+    }
+  },
+  "save": {
+    "destination": "local",
+    "csvEnabled": true,
+    "filenameTemplate": "{experimentName}_{participant_id}_{session_id}"
+  },
+  "participantMetadata": {
+    "provider": "none",
+    "fields": [
+      { "name": "participant_id", "label": "ID", "type": "text" },
+      { "name": "age", "label": "Age", "type": "number" },
+      {
+        "name": "gender",
+        "label": "Gender",
+        "type": "radio",
+        "options": [
+          "Woman/Female",
+          "Man/Male",
+          "Non-binary",
+          { "label": "Different term", "freeText": true },
+          "Prefer not to say"
+        ]
+      },
+      {
+        "name": "condition",
+        "label": "Condition",
+        "type": "radio",
+        "options": ["Condition 1", "Condition 2"]
+      }
+    ],
+    "manualValues": {},
+    "urlParameters": []
+  }
+}
