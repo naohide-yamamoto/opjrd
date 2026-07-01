@@ -1,10 +1,12 @@
 cff-version: 1.2.0
-title: Object Placement and Judgement of Relative Direction Program
-message: If you use this software, please cite the archived software release.
+title: "Object Placement and Judgement of Relative Direction Program"
+message: "If you use this software, please cite the archived software release."
 type: software
 authors:
   - family-names: Yamamoto
     given-names: Naohide
+    orcid: "https://orcid.org/0000-0001-9734-7470"
 version: 0.1.1
-repository-code: https://github.com/naohide-yamamoto/opjrd
+date-released: "2026-06-24"
+repository-code: "https://github.com/naohide-yamamoto/opjrd"
 license: MIT
