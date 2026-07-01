@@ -111,11 +111,12 @@ Before release, confirm that known limitations are documented in
 `docs/platform-support.md` and release notes. For the current macOS release
 baseline, the public limitations are:
 
-- macOS browser use is focused on recent Chrome and Safari.
-- macOS Firefox has passed smoke testing in the current development baseline.
+- macOS Chrome, Safari, and Firefox browser workflows have passed smoke testing
+  in the current development baseline.
+- Windows Chrome, Edge, and Firefox browser workflows have passed smoke testing
+  in the current development baseline.
 - The packaged macOS app has been tested on Apple Silicon.
 - Intel Mac validation is pending.
-- Windows browser workflows are pending.
 - Windows packaged apps are not supported.
 - Linux browser workflows are not supported.
 - Linux packaged apps are not supported.

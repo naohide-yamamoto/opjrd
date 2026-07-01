@@ -8,12 +8,11 @@ limits.
 The current release is scoped to:
 
 - macOS browser use in recent Chrome, Safari, and Firefox
+- Windows browser use in recent Chrome, Edge, and Firefox
 - a signed and notarised packaged macOS app
 
 The packaged macOS app has been tested on Apple Silicon. The macOS app is built
 as a universal app, but Intel Mac validation is still pending.
-
-Windows browser validation remains pending.
 
 ## Browser Mode
 
@@ -41,6 +40,28 @@ CSV is produced when `save.csvEnabled` is `true`.
 - Known Firefox-specific issues: none so far
 - Non-Firefox-specific issue found: missing-file error-message issues were also present in Chrome and Safari and were fixed in commit `97c2256`
 
+### Windows Chrome, Edge, and Firefox
+
+- OPJRD commit tested: `e2bd67f`
+- Environment: Windows 11 Enterprise
+- Browsers tested:
+  - Chrome 149.0.7827.197
+  - Edge 149.0.4022.98
+  - Firefox 152.0.4 (64-bit)
+- Configs tested: `/assets/examples/basic/config.json` and `/assets/examples/jrd/config.json`
+- Modes tested: `object_placement` and `jrd`
+- Passed: config loading, metadata form where enabled, fullscreen
+  entry/restoration, start gate on and off, object-placement drag/finalise,
+  movement-required warning before finalisation, JRD rod/click, JSON and CSV
+  download, post-save buttons, and runtime/browser metadata recording
+- Missing-file checks passed in all three browsers for locations file, trials
+  file, and stimulus image failures
+- Browser-specific issues: none so far
+- Notes: Chrome and Edge recorded full browser and Windows platform details
+  through User-Agent Client Hints. Firefox recorded browser and Windows details
+  from the legacy user-agent string and did not expose User-Agent Client Hints
+  fields.
+
 ## Tauri macOS App
 
 The packaged macOS app uses the same browser-first experiment core as browser
@@ -55,7 +76,6 @@ the save screen so the session can still be saved.
 
 The current release does not claim support for:
 
-- Windows browser workflows
 - Windows packaged apps
 - Linux browser workflows
 - Linux packaged apps
