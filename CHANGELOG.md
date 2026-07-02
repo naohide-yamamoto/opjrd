@@ -2,11 +2,14 @@
 
 ## Unreleased
 
+## 0.1.2 - 2026-07-02
+
 ### Changed
 
 - Documented macOS Firefox smoke-test results.
 - Documented Windows Chrome, Edge, and Firefox browser smoke-test results.
-- Documented packaged macOS app smoke-test results on Intel Mac.
+- Documented packaged macOS app smoke-test results on Intel Mac and Apple
+  Silicon.
 - Streamlined the public platform-support summary.
 - Improved the macOS DMG window with a drag-to-Applications background.
 

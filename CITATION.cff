@@ -6,7 +6,7 @@ authors:
   - family-names: Yamamoto
     given-names: Naohide
     orcid: "https://orcid.org/0000-0001-9734-7470"
-version: 0.1.1
-date-released: "2026-06-24"
+version: 0.1.2
+date-released: "2026-07-02"
 repository-code: "https://github.com/naohide-yamamoto/opjrd"
 license: MIT

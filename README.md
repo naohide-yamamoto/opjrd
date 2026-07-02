@@ -152,7 +152,7 @@ Development of OPJRD has been assisted by AI coding agents. All design decisions
 
 If you use OPJRD in academic work, please cite it as:
 
-> Yamamoto, N. (2026). _Object Placement and Judgement of Relative Direction Program_ (Version 0.1.1) [Computer software]. [https://github.com/naohide-yamamoto/opjrd](https://github.com/naohide-yamamoto/opjrd)
+> Yamamoto, N. (2026). _Object Placement and Judgement of Relative Direction Program_ (Version 0.1.2) [Computer software]. [https://github.com/naohide-yamamoto/opjrd](https://github.com/naohide-yamamoto/opjrd)
 
 In addition, because OPJRD uses jsPsych, please cite de Leeuw et al. (2023) as well.
 
