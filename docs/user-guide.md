@@ -9,7 +9,7 @@ folders. Detailed configuration and output-field references are in
 The current release support scope is macOS browser use in recent Chrome, Safari,
 and Firefox, Windows browser use in recent Chrome, Edge, and Firefox, plus a
 signed and notarised packaged macOS app. The packaged app has been tested on
-Apple Silicon; Intel Mac validation is pending.
+Apple Silicon and Intel Mac.
 
 JATOS support is not public yet. The visible `jatos` save destination and
 metadata provider are reserved for that workflow until it is validated.

@@ -115,8 +115,7 @@ baseline, the public limitations are:
   in the current development baseline.
 - Windows Chrome, Edge, and Firefox browser workflows have passed smoke testing
   in the current development baseline.
-- The packaged macOS app has been tested on Apple Silicon.
-- Intel Mac validation is pending.
+- The packaged macOS app has been tested on Apple Silicon and Intel Mac.
 - Windows packaged apps are not supported.
 - Linux browser workflows are not supported.
 - Linux packaged apps are not supported.

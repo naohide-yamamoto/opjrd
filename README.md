@@ -24,9 +24,7 @@ role objects as displayed on a trial interface.
 The current release scope is macOS browser use in recent Chrome, Safari, and
 Firefox, Windows browser use in recent Chrome, Edge, and Firefox, plus a signed
 and notarised packaged macOS app. The macOS packaged app has been tested on
-Apple Silicon; Intel Mac validation is pending and should be completed before
-OPJRD is used for real experiments on an Intel Mac. The current browser core
-includes:
+Apple Silicon and Intel Mac. The current browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core
@@ -84,10 +82,9 @@ config file's folder. The session output stores a non-identifying
 Experiment folders intended for Tauri local loading should be self-contained.
 The same launch screen includes an initial GUI settings editor for creating a
 new config or editing common settings from an existing config. In Tauri, `New
-config` first asks for the experiment config folder, then defaults the native
-save dialog to `config.json` in that folder so local CSV paths share the same
-folder context and local image paths can be picked and validated relative to
-that folder. Saved editor output is still ordinary JSON.
+config` first asks for the experiment config folder. The editor then validates
+local CSV and image paths relative to that selected folder and suggests
+`config.json` when saving. Saved editor output is still ordinary JSON.
 
 For packaged macOS testing, OPJRD uses a universal macOS build so the same app
 can run on Apple Silicon Macs and Intel Macs. Install both macOS Rust targets

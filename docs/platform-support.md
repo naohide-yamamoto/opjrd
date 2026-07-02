@@ -11,8 +11,22 @@ The current release is scoped to:
 - Windows browser use in recent Chrome, Edge, and Firefox
 - a signed and notarised packaged macOS app
 
-The packaged macOS app has been tested on Apple Silicon. The macOS app is built
-as a universal app, but Intel Mac validation is still pending.
+The packaged macOS app has been tested on Apple Silicon and Intel Mac. The
+macOS app is built as a universal app.
+
+## Validated Workflows
+
+| Workflow | Current Status |
+| --- | --- |
+| macOS browser mode | Smoke-tested in Chrome, Safari, and Firefox |
+| Windows browser mode | Smoke-tested in Chrome, Edge, and Firefox |
+| Packaged macOS app | Smoke-tested on Apple Silicon and Intel Mac |
+
+These checks cover both `object_placement` and `jrd` modes with representative
+example configs. Browser checks include config loading, trial execution, local
+JSON/CSV downloads, and post-save navigation. Packaged macOS app checks include
+installation and launch, local config/file loading, trial execution, fullscreen
+behaviour, local saving, post-save navigation, and GUI config editing.
 
 ## Browser Mode
 
@@ -27,41 +41,6 @@ behaviour.
 Browser-mode local saving uses browser downloads. JSON is always produced, and
 CSV is produced when `save.csvEnabled` is `true`.
 
-## Recent Browser Smoke Tests
-
-### macOS Firefox
-
-- OPJRD commit tested: `5f0cd1e`
-- Environment: macOS Tahoe 26.4 on Apple Silicon M2
-- Browser: Firefox 152.0.2 (aarch64)
-- Configs tested: `/assets/examples/basic/config.json` and `/assets/examples/jrd/config.json`
-- Modes tested: `object_placement` and `jrd`
-- Passed: config loading, metadata form, fullscreen entry/restoration, start gate on and off, object-placement drag/finalise, JRD rod/click, JSON and CSV download, and post-save buttons
-- Known Firefox-specific issues: none so far
-- Non-Firefox-specific issue found: missing-file error-message issues were also present in Chrome and Safari and were fixed in commit `97c2256`
-
-### Windows Chrome, Edge, and Firefox
-
-- OPJRD commit tested: `e2bd67f`
-- Environment: Windows 11 Enterprise
-- Browsers tested:
-  - Chrome 149.0.7827.197
-  - Edge 149.0.4022.98
-  - Firefox 152.0.4 (64-bit)
-- Configs tested: `/assets/examples/basic/config.json` and `/assets/examples/jrd/config.json`
-- Modes tested: `object_placement` and `jrd`
-- Passed: config loading, metadata form where enabled, fullscreen
-  entry/restoration, start gate on and off, object-placement drag/finalise,
-  movement-required warning before finalisation, JRD rod/click, JSON and CSV
-  download, post-save buttons, and runtime/browser metadata recording
-- Missing-file checks passed in all three browsers for locations file, trials
-  file, and stimulus image failures
-- Browser-specific issues: none so far
-- Notes: Chrome and Edge recorded full browser and Windows platform details
-  through User-Agent Client Hints. Firefox recorded browser and Windows details
-  from the legacy user-agent string and did not expose User-Agent Client Hints
-  fields.
-
 ## Tauri macOS App
 
 The packaged macOS app uses the same browser-first experiment core as browser
@@ -71,6 +50,11 @@ fullscreen handling, and local saving.
 Tauri local saving asks the user to choose an output folder and writes JSON and
 optional CSV files there. If the folder selection is cancelled, OPJRD returns to
 the save screen so the session can still be saved.
+
+Some cosmetic details of the packaged app, such as Dock icon sizing and
+GUI-editor control sizing, may vary between Apple Silicon and Intel Mac. 
+They are optimised for Apple Silicon Mac. These differences have not affected
+experiment functionality in testing.
 
 ## Not Currently Supported
 
@@ -85,12 +69,9 @@ The current release does not claim support for:
 JATOS-related config and save-adapter paths are not publicly supported until the
 JATOS workflow is validated.
 
-## Deferred Validation
+## Additional Validation
 
-The remaining platform validation item for the current macOS release baseline is
-a packaged universal `.app` smoke test on an Intel Mac.
-
-Before claiming support for any additional platform or browser, run the relevant
-manual smoke tests for both `object_placement` and `jrd` modes, including config
-loading, fullscreen behaviour, trial start gate behaviour, response
-finalisation, and data saving.
+Before claiming support for any additional platform or browser, run the
+relevant manual smoke tests for both `object_placement` and `jrd` modes,
+including config loading, fullscreen behaviour, trial start gate behaviour,
+response finalisation, and data saving.

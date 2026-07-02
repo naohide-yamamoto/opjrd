@@ -29,7 +29,6 @@ import {
 } from "./data/save-adapters";
 import { saveFailureRecovery } from "./data/save-flow";
 import {
-  joinConfigSavePath,
   saveConfigText,
 } from "./data/config-file-save";
 import {
@@ -223,10 +222,7 @@ function renderTauriConfigEditorLauncher(
       onBack("Config saved.");
     },
     onSave: (configText) => {
-      const defaultSavePath = localConfigFolderPath
-        ? joinConfigSavePath(localConfigFolderPath)
-        : localConfigPath ?? "config.json";
-      return saveConfigText(configText, defaultSavePath);
+      return saveConfigText(configText, localConfigPath ?? "config.json");
     },
     chooseStimulusImage,
     validateExperimentDataFilePath,

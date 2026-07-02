@@ -47,8 +47,8 @@ In ordinary browser runs, relative config paths resolve as browser URLs relative
 to the loaded config URL. In Tauri desktop runs started without a `?config=...`
 URL override, OPJRD asks the user to choose a local config file for running or
 editing an existing config. For `New config`, OPJRD first asks the user to
-choose the experiment config folder and then defaults the native save dialog to
-`config.json` in that folder.
+choose the experiment config folder. The editor validates local CSV and image
+paths relative to that selected folder and suggests `config.json` when saving.
 
 `locationsFile`, `trialsFile`, and stimulus image paths are resolved inside the
 experiment config folder. Tauri local paths must be relative and must stay inside

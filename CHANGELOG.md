@@ -6,11 +6,15 @@
 
 - Documented macOS Firefox smoke-test results.
 - Documented Windows Chrome, Edge, and Firefox browser smoke-test results.
+- Documented packaged macOS app smoke-test results on Intel Mac.
+- Streamlined the public platform-support summary.
 - Improved the macOS DMG window with a drag-to-Applications background.
 
 ### Fixed
 
 - Improved missing-file errors for locations, trials, and stimulus image files.
+- Improved config-editor save-dialog compatibility on older macOS versions.
+- Improved config-editor field focus for missing local file warnings.
 
 ## 0.1.1 - 2026-06-24
 

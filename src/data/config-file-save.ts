@@ -5,13 +5,11 @@ import { writeTextFile } from "@tauri-apps/plugin-fs";
 const CONFIG_SAVE_DIALOG_TITLE = "Save OPJRD config";
 const CONFIG_DOWNLOAD_FILENAME = "opjrd-config.json";
 
-export function joinConfigSavePath(
-  directoryPath: string,
-  filename = "config.json"
-): string {
-  const separator =
-    directoryPath.includes("\\") && !directoryPath.includes("/") ? "\\" : "/";
-  return `${directoryPath.replace(/[\\/]+$/u, "")}${separator}${filename}`;
+export function configSaveFilename(pathOrFilename: string): string {
+  return (
+    pathOrFilename.split(/[\\/]/u).filter(Boolean).at(-1) ||
+    CONFIG_DOWNLOAD_FILENAME
+  );
 }
 
 function downloadConfig(filename: string, text: string): void {
@@ -37,7 +35,7 @@ export async function saveConfigText(
   if (isTauri()) {
     const selectedPath = await save({
       title: CONFIG_SAVE_DIALOG_TITLE,
-      defaultPath: defaultFilename,
+      defaultPath: configSaveFilename(defaultFilename),
       canCreateDirectories: true,
       filters: [
         {

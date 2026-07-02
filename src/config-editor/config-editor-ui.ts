@@ -1064,6 +1064,7 @@ function reportFileExistenceErrorUntilInteraction(
 
   input.setCustomValidity("");
   input.setCustomValidity(message);
+  input.focus();
   input.reportValidity();
 }
 

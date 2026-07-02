@@ -121,13 +121,13 @@ The Tauri GUI settings editor is a desktop launch-screen workflow. It can
 create a config from defaults or load an existing local config, expose common
 routine settings through form controls, validate required and bounded fields, and
 save ordinary JSON through the same config model. New local configs first choose
-an experiment config folder and then default the native save dialog to
-`config.json` in that folder, so CSV and image paths share the same folder
-context before the config exists. For stimulus images, the editor exposes the
-canonical `response.stimuli.images` map as editable object rows and uses a
-native image picker plus typed-path validation when a local config folder is
-known. Experiment runs use strict config loading, and edited configs are also
-passed through strict config loading before they can be saved. The editor uses a
+an experiment config folder, validates CSV and image paths relative to that
+selected folder before the config exists, and suggests `config.json` when
+saving. For stimulus images, the editor exposes the canonical
+`response.stimuli.images` map as editable object rows and uses a native image
+picker plus typed-path validation when a local config folder is known.
+Experiment runs use strict config loading, and edited configs are also passed
+through strict config loading before they can be saved. The editor uses a
 separate draft-loading path for existing configs so recoverable field-level
 problems, such as unsupported file extensions, zero-length `zeroDirection`
 vectors, blank required paths, and invalid numeric bounds, can be corrected in
