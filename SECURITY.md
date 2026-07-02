@@ -6,7 +6,17 @@ Security fixes are considered for the latest public release of OPJRD.
 
 | Version | Supported |
 | --- | --- |
-| 0.1.1 | Yes |
+| 0.1.2 | Yes |
+| 0.1.1 and earlier | No |
+
+The current support scope is:
+
+- macOS browser use in recent Chrome, Safari, and Firefox
+- Windows browser use in recent Chrome, Edge, and Firefox
+- the signed and notarised packaged macOS app
+
+Windows packaged apps, Linux workflows, JATOS deployment, and mobile workflows
+are not supported.
 
 ## Reporting a Vulnerability
 
