@@ -81,10 +81,11 @@ Implemented participant-metadata providers are:
 
 - `none`: records an empty `values` object.
 - `form`: shows OPJRD's built-in participant metadata form before the ready
-  screen in browser and Tauri runs, and records the entered values.
+  screen in browser, Tauri, and JATOS runs, and records the entered values.
 - `url`: reads configured URL query parameters, or `participant_id`,
   `participantId`, and `pid` by default.
 - `manual`: records primitive values from `participantMetadata.manualValues`.
+- `jatos`: records primitive values exposed by the JATOS runtime.
 
 When the `form` provider uses the default `participantMetadata.fields`, the form
 collects `participant_id` labelled `ID`, `age`, `gender`, and `condition`. `age`
@@ -92,7 +93,9 @@ is exported as a number. Ordinary radio and drop-down options export the
 selected visible label. Free-text radio options export the participant-entered
 text instead of the option label.
 
-The `jatos` provider is internal until the public JATOS workflow is validated.
+The `jatos` provider reads primitive values from JATOS study input, study
+session data, batch session data, URL query parameters, and component input.
+Objects and arrays are ignored.
 
 `rows` contains canonical OPJRD trial rows only. Runtime/plugin bookkeeping fields such as `opjrd_row`, `stage`, `trial_type`, `trial_index`, `time_elapsed`, and `internal_node_id` are internal and are removed before JSON or CSV export.
 
@@ -189,9 +192,10 @@ With the default `save.destination` value of `local`, ordinary browser runs save
 these files through browser downloads. In the Tauri desktop shell, OPJRD asks
 the user to choose an output folder and then writes the generated JSON and
 optional CSV files into that folder. The JSON session envelope and wide CSV rows
-are the same across these internal save adapters. The `jatos` destination is
-reserved for the JATOS workflow; until that workflow is validated, it fails
-when the JATOS runtime is unavailable.
+are the same across these internal save adapters. The `jatos` destination
+submits the same JSON session envelope as JATOS result data. When JATOS
+result-file upload is available, OPJRD also uploads the generated JSON result
+file and the generated CSV result file when `save.csvEnabled` is `true`.
 
 CSV uses one wide row per trial. It includes:
 

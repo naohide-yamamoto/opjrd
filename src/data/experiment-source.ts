@@ -7,8 +7,15 @@ import {
 import {
   createBrowserExperimentFileLoader,
   type ExperimentFileLoader,
+  resolveRelativeUrl,
 } from "../core/experiment";
 import type { ExperimentConfig } from "../core/types";
+import {
+  asRecord,
+  getJatosComponentInput,
+  getJatosStudyInput,
+  isJatosRuntimeAvailable,
+} from "../runtime/jatos";
 
 export interface ExperimentSource {
   config: ExperimentConfig;
@@ -43,6 +50,58 @@ export async function loadBrowserExperimentSource(
     configPath: configUrl,
     fileLoader: createBrowserExperimentFileLoader(configUrl),
   };
+}
+
+function stringValue(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
+}
+
+function readJatosConfigInput(): Record<string, unknown> {
+  return {
+    ...(getJatosStudyInput() ?? {}),
+    ...(getJatosComponentInput() ?? {}),
+  };
+}
+
+export async function loadJatosExperimentSource(
+  fallbackConfigUrl: string
+): Promise<ExperimentSource> {
+  if (!isJatosRuntimeAvailable()) {
+    throw new Error("JATOS config loading was requested, but JATOS is unavailable.");
+  }
+
+  const input = readJatosConfigInput();
+  const configPath = stringValue(input.configPath);
+  const embeddedConfig = asRecord(input.config);
+
+  if (embeddedConfig) {
+    const baseUrl = configPath
+      ? resolveRelativeUrl(configPath, window.location.href)
+      : window.location.href;
+    return {
+      config: normaliseExperimentConfig(embeddedConfig),
+      configPath: configPath
+        ? `jatos:${configPath}`
+        : "jatos:componentInput.config",
+      fileLoader: createBrowserExperimentFileLoader(baseUrl),
+      sourceLabel: configPath
+        ? `JATOS config: ${configPath}`
+        : "JATOS component input config",
+    };
+  }
+
+  if (configPath) {
+    const source = await loadBrowserExperimentSource(
+      resolveRelativeUrl(configPath, window.location.href)
+    );
+    return {
+      ...source,
+      configPath: `jatos:${configPath}`,
+      sourceLabel: `JATOS config: ${configPath}`,
+    };
+  }
+
+  return loadBrowserExperimentSource(fallbackConfigUrl);
 }
 
 export async function chooseTauriConfigPath(): Promise<string | null> {

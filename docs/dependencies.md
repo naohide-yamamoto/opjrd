@@ -63,9 +63,10 @@ strings.
 
 ## JATOS
 
-JATOS is not yet a public workflow. When exposed, this document should name the
-target JATOS version used for validation and document any JATOS-specific
-dependencies or deployment constraints.
+The JATOS integration targets JATOS 3.10.x. OPJRD does not bundle JATOS or
+`jatos.js`; `dist/jatos.html` loads `jatos.js` from the JATOS server at runtime.
+JATOS deployment therefore has a runtime server dependency rather than an npm or
+Cargo dependency.
 
 ## Upgrade Process
 

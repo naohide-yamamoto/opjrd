@@ -11,8 +11,8 @@ and Firefox, Windows browser use in recent Chrome, Edge, and Firefox, plus a
 signed and notarised packaged macOS app. The packaged app has been tested on
 Apple Silicon and Intel Mac.
 
-JATOS support is not public yet. The visible `jatos` save destination and
-metadata provider are reserved for that workflow until it is validated.
+The JATOS workflow is documented separately in `docs/jatos-deployment.md`.
+Validate it on the target JATOS server before using it for a real online study.
 
 ## Running OPJRD in a Browser
 
@@ -42,6 +42,26 @@ http://127.0.0.1:5173/?config=/assets/examples/jrd/config.json
 
 Browser runs save data through browser downloads. JSON is always produced; CSV
 is also produced when `save.csvEnabled` is `true`.
+
+## Running OPJRD in JATOS
+
+Build OPJRD with:
+
+```sh
+npm run build
+```
+
+Use `dist/jatos.html` as the JATOS component HTML file. The recommended JATOS
+component input points to a config file included with the study assets:
+
+```json
+{
+  "configPath": "assets/examples/basic/config.json"
+}
+```
+
+Set `save.destination` to `jatos` in that config when JATOS should own the
+result submission. See `docs/jatos-deployment.md` for the full workflow.
 
 ## Running OPJRD in the Tauri App
 
@@ -168,9 +188,10 @@ finalisation is not used in the JRD response interface.
 Implemented metadata providers are:
 
 - `none`: records no participant metadata
-- `form`: shows OPJRD's built-in metadata form in browser and Tauri runs
+- `form`: shows OPJRD's built-in metadata form in browser, Tauri, and JATOS runs
 - `url`: reads configured URL parameters
 - `manual`: records fixed primitive values from `config.json`
+- `jatos`: records primitive values exposed by the JATOS runtime
 
 The default form fields are ID, age, gender, and condition. Fields are
 configured in `participantMetadata.fields`. Supported field types are `text`,
@@ -184,7 +205,9 @@ instead of the option label.
 
 `save.destination` is `local` by default. In browser mode, local saving means
 browser downloads. In Tauri mode, local saving means writing to a user-selected
-folder.
+folder. In JATOS mode, `jatos` submits the JSON session envelope to JATOS and
+can upload JSON/CSV result files when the JATOS runtime exposes result-file
+upload.
 
 The default filename template is:
 

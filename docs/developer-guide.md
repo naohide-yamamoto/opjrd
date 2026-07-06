@@ -39,7 +39,7 @@ Runtime-specific behaviour should stay behind adapters:
 - browser and Tauri fullscreen handling
 - browser-download and Tauri-local save behaviour
 - Tauri config/file loading and folder access
-- future JATOS save and metadata integration
+- JATOS config loading, save, and metadata integration
 
 The Tauri shell should provide desktop capabilities without making the trial
 core depend on Tauri APIs. Browser mode must remain a first-class execution
@@ -76,6 +76,9 @@ Run the production browser build:
 ```sh
 npm run build
 ```
+
+The production build emits `dist/index.html` for ordinary browser/Tauri-webview
+use and `dist/jatos.html` for JATOS components.
 
 Run linting and the privacy scan:
 
@@ -164,13 +167,10 @@ Before a public release candidate:
 - run `npm run build`
 - run `npm run lint`
 - run `npm run privacy:scan` if lint was not run
-- smoke-test supported browser and Tauri workflows
+- smoke-test supported browser, Tauri, and JATOS workflows
 - build the universal macOS app
 - sign, notarise, staple, and Gatekeeper-test the release DMG
 - confirm public docs do not claim untested platform support
 - confirm third-party notices and provenance notes are current
 
 The fuller maintainer checklist is in `docs/release-checklist.md`.
-
-JATOS should remain internal until its config, save, metadata, and deployment
-path are minimally functional and documented.

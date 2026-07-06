@@ -297,9 +297,12 @@ The default `local` destination saves locally in the runtime-appropriate way:
 ordinary browser runs use browser downloads, and the Tauri desktop shell asks
 the user to choose an output folder before writing the generated JSON filename
 and, when CSV export is enabled, the generated CSV filename into that folder.
-The `jatos` destination is reserved for the JATOS workflow. Until that workflow
-is publicly supported, OPJRD fails if `destination` is `jatos` but OPJRD
-is not running inside an available JATOS runtime.
+The `jatos` destination submits the JSON session envelope to JATOS result data.
+When JATOS result-file upload is available, OPJRD also uploads the generated
+JSON result file and, when CSV export is enabled, the generated CSV result file.
+OPJRD fails clearly if `destination` is `jatos` but OPJRD is not running inside
+an available JATOS runtime. OPJRD also fails clearly if CSV export is requested
+but the JATOS runtime does not expose result-file upload.
 
 `filenameTemplate` controls the filename stem used for JSON and CSV output.
 OPJRD appends `.json` and `.csv` after rendering and sanitising the stem. Only
@@ -377,6 +380,11 @@ field must be an object with:
 Field names become keys in `participant_metadata.values`, repeated CSV
 participant-metadata columns, and filename-template participant-ID lookup when
 the key is `participant_id`, `participantId`, or `pid`.
+
+The `jatos` provider records primitive values from JATOS study input, study
+session data, batch session data, URL query parameters exposed by JATOS, and
+component input. Objects and arrays are ignored, so an embedded JATOS `config`
+object is not copied into participant metadata.
 
 When `provider` is `form`, OPJRD shows its built-in participant metadata form
 before the ready screen. The same provider is used in browser runs and in the

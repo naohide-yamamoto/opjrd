@@ -37,9 +37,10 @@ The public `save.destination` setting is `local` by default: browser runs use
 browser downloads, while Tauri desktop runs automatically use the Tauri local
 save adapter, which asks the user to choose an output folder and writes the
 generated JSON and optional CSV files there. The public `jatos` destination is
-reserved for the JATOS workflow; until that workflow is publicly supported, OPJRD
-fails clearly if `jatos` is selected without an available JATOS runtime rather
-than falling back to local saving.
+handled by the JATOS adapter. It submits the JSON session envelope as JATOS
+result data, uploads generated JSON/CSV result files when the runtime exposes
+result-file upload, and fails clearly if `jatos` is selected without an
+available JATOS runtime rather than falling back to local saving.
 
 After a successful save, OPJRD shows a post-save screen rather than leaving the
 participant at a dead end. From there the user can start another session with
@@ -83,6 +84,14 @@ assets are returned to the browser core as data URLs. This avoids granting broad
 frontend filesystem read access while keeping local assets relative to the
 selected experiment config folder.
 
+JATOS loading uses a separate HTML entry, `jatos.html`, so ordinary browser runs
+do not load `jatos.js`. The JATOS entry loads the server-provided JATOS runtime,
+waits for `jatos.onLoad()`, and then starts the same main OPJRD application. A
+JATOS component or study input can provide `configPath`, an embedded `config`
+object, or both. If `configPath` is supplied, OPJRD records a non-identifying
+`jatos:` config label in session output instead of exporting the full server
+URL.
+
 Current public platform support is recorded in `docs/platform-support.md`.
 
 Desktop packaging instructions are recorded in `docs/desktop-packaging.md`.
@@ -111,7 +120,7 @@ The config model includes:
 Participant metadata is collected before jsPsych starts a session. This keeps
 filename generation, JSON session output, and wide CSV participant columns in
 one shared path. The `form` participant-metadata provider uses OPJRD's built-in
-participant form in both browser and Tauri runs, feeding the same
+participant form in browser, Tauri, and JATOS runs, feeding the same
 `participant_metadata` block rather than creating deployment-specific output
 schemas.
 

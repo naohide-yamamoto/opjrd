@@ -3,6 +3,7 @@ import type {
   ParticipantMetadataProvider,
   ParticipantMetadataValue,
 } from "../core/types";
+import { isJatosRuntimeAvailable } from "../runtime/jatos";
 
 export interface RuntimeMetadata {
   runtime_environment: "browser" | "jatos" | "tauri";
@@ -52,12 +53,6 @@ export interface SessionEnvelope {
 
 declare global {
   interface Window {
-    jatos?: {
-      batchSessionData?: unknown;
-      componentJsonInput?: unknown;
-      studySessionData?: unknown;
-      submitResultData?: (data: unknown) => Promise<unknown> | void;
-    };
     __TAURI__?: unknown;
   }
 }
@@ -96,7 +91,7 @@ export interface RuntimeNavigatorLike {
 }
 
 export function detectRuntimeEnvironment(): RuntimeMetadata["runtime_environment"] {
-  if (typeof window !== "undefined" && window.jatos) {
+  if (isJatosRuntimeAvailable()) {
     return "jatos";
   }
   if (typeof window !== "undefined" && window.__TAURI__) {

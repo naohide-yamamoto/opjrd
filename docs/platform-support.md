@@ -66,8 +66,8 @@ The current release does not claim support for:
 - JATOS deployment
 - mobile platforms
 
-JATOS-related config and save-adapter paths are not publicly supported until the
-JATOS workflow is validated.
+JATOS deployment should remain pending until the workflow is validated on the
+target JATOS server.
 
 ## Additional Validation
 

@@ -1,4 +1,5 @@
 import { readdirSync } from "node:fs";
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Plugin } from "vite";
 import { defineConfig } from "vitest/config";
@@ -6,6 +7,7 @@ import { defineConfig } from "vitest/config";
 const tauriDevHost = process.env.TAURI_DEV_HOST;
 const localeModuleId = "virtual:opjrd-locales";
 const resolvedLocaleModuleId = `\0${localeModuleId}`;
+const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 const localeDirectory = fileURLToPath(
   new URL("./public/locales/", import.meta.url)
 );
@@ -39,6 +41,12 @@ export default defineConfig({
   plugins: [opjrdLocaleManifestPlugin()],
   build: {
     target: "es2022",
+    rollupOptions: {
+      input: {
+        index: resolve(projectRoot, "index.html"),
+        jatos: resolve(projectRoot, "jatos.html"),
+      },
+    },
   },
   server: {
     host: tauriDevHost ?? "127.0.0.1",

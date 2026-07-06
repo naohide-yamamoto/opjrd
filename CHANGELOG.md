@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Added
+
+- Added the initial JATOS component entry, config-loading path, result-data
+  save adapter, result-file upload support, and participant-metadata provider
+  behaviour for JATOS validation.
+- Added JATOS deployment documentation.
+
 ## 0.1.2 - 2026-07-02
 
 ### Changed

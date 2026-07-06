@@ -36,6 +36,7 @@ import {
   chooseTauriStimulusImage,
   chooseTauriStimulusImageInFolder,
   chooseTauriConfigPath,
+  loadJatosExperimentSource,
   loadBrowserExperimentSource,
   loadTauriExperimentSource,
   loadTauriExperimentSourceForEditing,
@@ -50,6 +51,7 @@ import {
 } from "./data/experiment-source";
 import { loadLocale, type LocaleText } from "./i18n/locale";
 import { buildModeTimeline } from "./modes/mode-loader";
+import { isJatosRuntimeAvailable, waitForJatosOnLoad } from "./runtime/jatos";
 import { loadStimulusAssets } from "./trials/stimulus-assets";
 import {
   cleanupTrialRunPresentation,
@@ -329,6 +331,9 @@ async function requestTauriExperimentSource(
 
 async function loadExperimentSource(): Promise<ExperimentSource> {
   const configUrl = getConfigUrl();
+  if (isJatosRuntimeAvailable()) {
+    return loadJatosExperimentSource(configUrl);
+  }
   if (shouldUseTauriLocalConfig(window.location.search)) {
     return requestTauriExperimentSource();
   }
@@ -488,6 +493,12 @@ function renderPostSaveScreen(
 
   const messageText = document.createElement("p");
   messageText.textContent = message;
+
+  if (currentSource.config.save.destination === "jatos") {
+    container.append(messageText);
+    app.append(container);
+    return;
+  }
 
   const actions = document.createElement("div");
   actions.className = "opjrd-config-picker-actions opjrd-post-save-actions";
@@ -1132,6 +1143,7 @@ async function startInitialExperimentFlow(): Promise<void> {
 
 async function main(): Promise<void> {
   installTauriFullscreenAdapter();
+  await waitForJatosOnLoad();
   await startInitialExperimentFlow();
 }
 

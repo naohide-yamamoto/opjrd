@@ -8,8 +8,8 @@ completed before tagging a release or attaching packaged artefacts.
 - Confirm the release version in `package.json`, `src-tauri/Cargo.toml`, and
   `CITATION.cff`.
 - Confirm the public support scope in `docs/platform-support.md`.
-- Confirm JATOS remains described as not publicly supported unless the JATOS
-  workflow has been validated.
+- Confirm the JATOS support statement matches the current JATOS validation
+  status.
 - Confirm the release remains compatible with OPJRD's free and open-source
   distribution model under the MIT licence, including dependency licences and
   bundled asset redistribution rights.
@@ -119,7 +119,8 @@ baseline, the public limitations are:
 - Windows packaged apps are not supported.
 - Linux browser workflows are not supported.
 - Linux packaged apps are not supported.
-- JATOS deployment is not publicly supported.
+- JATOS deployment support depends on completing representative JATOS smoke
+  testing before release.
 - Mobile platforms are not supported.
 
 Do not claim support for a platform, browser, or deployment workflow until both

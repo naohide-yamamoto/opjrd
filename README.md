@@ -24,7 +24,9 @@ role objects as displayed on a trial interface.
 The current release scope is macOS browser use in recent Chrome, Safari, and
 Firefox, Windows browser use in recent Chrome, Edge, and Firefox, plus a signed
 and notarised packaged macOS app. The macOS packaged app has been tested on
-Apple Silicon and Intel Mac. The current browser core includes:
+Apple Silicon and Intel Mac. JATOS integration is available for validation but
+should be smoke-tested on the target JATOS server before it is treated as a
+supported study workflow. The current browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core
@@ -46,12 +48,12 @@ Apple Silicon and Intel Mac. The current browser core includes:
 - optional per-object local image stimulus assets, with text labels as the
   default and fallback rendering mode
 - row-based stimulus image selection in the Tauri GUI settings editor
-- participant metadata collection through `none`, `form`, `url`, and `manual`
-  providers, with JATOS kept internal
+- participant metadata collection through `none`, `form`, `url`, `manual`, and
+  `jatos` providers
 - fixture experiment assets
 - automated tests for imagined headings, canonical transforms, scoring, and timing
-- local browser download, Tauri local save, and a JATOS-oriented save-adapter
-  path that is not publicly supported yet
+- local browser download, Tauri local save, and JATOS result-data/result-file
+  save paths
 
 ## Development
 
@@ -125,6 +127,7 @@ Current trials render object symbols as canvas-drawn text with configurable font
 - `docs/config-schema.md`: canonical JSON config contract
 - `docs/output-schema.md`: canonical JSON and CSV output contract
 - `docs/trial-timing-model.md`: shared timing model
+- `docs/jatos-deployment.md`: JATOS deployment and validation workflow
 - `docs/desktop-packaging.md`: macOS Tauri packaging notes
 - `docs/release-checklist.md`: public release preparation checklist
 - `docs/platform-support.md`: current public platform support and known limits
@@ -137,7 +140,8 @@ Current trials render object symbols as canvas-drawn text with configurable font
 - Use pinned, project-managed dependency versions.
 - Keep JSON configuration as the canonical source of experiment settings.
 - Keep the GUI settings editor aligned with the same JSON configuration model.
-- Design save and deployment adapters early, including a future JATOS path, without exposing public JATOS workflows before they are minimally functional.
+- Keep deployment adapters explicit, including local browser/Tauri saving and
+  JATOS result submission.
 
 ## Acknowledgements
 
