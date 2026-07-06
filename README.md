@@ -183,7 +183,7 @@ Program_ (Version 0.1.2) [Computer software].
 In addition, because OPJRD uses jsPsych, please cite de Leeuw et al. (2023) as
 well.
 
-If you use OPJRD online with JATOS, please cite Lange et al. (2015).
+If you use OPJRD online with JATOS, please cite Lange et al. (2015) too.
 
 ## References
 
@@ -192,7 +192,7 @@ open-source collaborative ecosystem of behavioral experiments. _Journal of Open
 Source Software_, _8_(85), Article 5351. [https://doi.org/10.21105/joss.05351](https://doi.org/10.21105/joss.05351)
 
 Lange, K., Kühn, S., & Filevich, E. (2015). "Just Another Tool for Online
-Studies” (JATOS): An easy solution for setup and management of web servers
+Studies" (JATOS): An easy solution for setup and management of web servers
 supporting online studies. _PLOS ONE_, _10_(6), Article e0130834.
 [https://doi.org/10.1371/journal.pone.0130834](https://doi.org/10.1371/journal.pone.0130834)
 
