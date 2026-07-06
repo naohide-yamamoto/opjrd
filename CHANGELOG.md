@@ -8,6 +8,7 @@
   save adapter, result-file upload support, and participant-metadata provider
   behaviour for JATOS validation.
 - Added JATOS deployment documentation.
+- Documented initial JATOS smoke-test results on JATOS 3.10.5.
 
 ## 0.1.2 - 2026-07-02
 

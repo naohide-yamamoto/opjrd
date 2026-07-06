@@ -1,6 +1,8 @@
 # Object Placement and Judgement of Relative Direction Program (OPJRD)
 
-**Object Placement and Judgement of Relative Direction Program (OPJRD)** is a browser-first spatial-memory application for running object-placement and judgement-of-relative-direction tasks from one shared experiment core.
+**Object Placement and Judgement of Relative Direction Program (OPJRD)** is a
+browser-first spatial-memory application for running object-placement and
+judgement-of-relative-direction tasks from one shared experiment core.
 
 ## Task Structure and A/B/C Wording
 
@@ -21,12 +23,13 @@ role objects as displayed on a trial interface.
 
 ## Current Status
 
-The current release scope is macOS browser use in recent Chrome, Safari, and
-Firefox, Windows browser use in recent Chrome, Edge, and Firefox, plus a signed
-and notarised packaged macOS app. The macOS packaged app has been tested on
-Apple Silicon and Intel Mac. JATOS integration is available for validation but
-should be smoke-tested on the target JATOS server before it is treated as a
-supported study workflow. The current browser core includes:
+The current validated baseline covers macOS browser use in recent Chrome,
+Safari, and Firefox, Windows browser use in recent Chrome, Edge, and Firefox,
+plus a signed and notarised packaged macOS app. The macOS packaged app has been
+tested on Apple Silicon and Intel Mac. JATOS integration has passed initial
+smoke-testing on JATOS 3.10.5 with Chrome on macOS, and should be smoke-tested
+on the target JATOS server before it is used for a real study. The current
+browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core
@@ -51,7 +54,8 @@ supported study workflow. The current browser core includes:
 - participant metadata collection through `none`, `form`, `url`, `manual`, and
   `jatos` providers
 - fixture experiment assets
-- automated tests for imagined headings, canonical transforms, scoring, and timing
+- automated tests for imagined headings, canonical transforms, scoring, and
+  timing
 - local browser download, Tauri local save, and JATOS result-data/result-file
   save paths
 
@@ -72,12 +76,13 @@ npm run tauri:dev
 
 This requires the normal Tauri system prerequisites, including Rust/Cargo. The
 Tauri shell runs the same Vite/jsPsych app and adds the desktop window boundary,
-Tauri-backed fullscreen handling, and local saving through a native output-folder
-picker. Stop any existing Vite server on port `5173` before running this command,
-because the Tauri dev command starts the frontend dev server itself.
+Tauri-backed fullscreen handling, and local saving through a native
+output-folder picker. Stop any existing Vite server on port `5173` before
+running this command, because the Tauri dev command starts the frontend dev
+server itself.
 
-When the Tauri shell is launched without a `?config=...` URL override, it shows a
-native picker for choosing an experiment `config.json`. `locationsFile`,
+When the Tauri shell is launched without a `?config=...` URL override, it shows
+a native picker for choosing an experiment `config.json`. `locationsFile`,
 `trialsFile`, and later local asset paths are resolved relative to the selected
 config file's folder. The session output stores a non-identifying
 `tauri-local:<filename>` config label rather than the full local machine path.
@@ -118,7 +123,10 @@ The included JRD fixture can be opened with:
 /?config=/assets/examples/jrd/config.json
 ```
 
-Current trials render object symbols as canvas-drawn text with configurable font family, size, and colour by default. They can also use configured per-object local image assets, resolved relative to the experiment config folder, while preserving text labels as the fallback.
+Current trials render object symbols as canvas-drawn text with configurable font
+family, size, and colour by default. They can also use configured per-object
+local image assets, resolved relative to the experiment config folder, while
+preserving text labels as the fallback.
 
 ## Documentation
 
@@ -132,7 +140,8 @@ Current trials render object symbols as canvas-drawn text with configurable font
 - `docs/release-checklist.md`: public release preparation checklist
 - `docs/platform-support.md`: current public platform support and known limits
 - `docs/dependencies.md`: pinned dependencies and provenance notes
-- `THIRD_PARTY_NOTICES.md`: direct third-party notices and bundled asset provenance
+- `THIRD_PARTY_NOTICES.md`: direct third-party notices and bundled asset
+  provenance
 
 ## Design Principles
 
@@ -145,23 +154,42 @@ Current trials render object symbols as canvas-drawn text with configurable font
 
 ## Acknowledgements
 
-OPJRD uses jsPsych (de Leeuw et al., 2023) for browser-based experiment sequencing and response-data
-collection.
+OPJRD uses jsPsych (de Leeuw et al., 2023) for browser-based experiment
+sequencing and response-data collection.
 
-OPJRD's circle-and-rod interface for the JRD task was modelled on a custom-written program that was used by Amy Shelton and Timothy McNamara (Shelton & McNamara, 1997). Christopher Nolan later refined this interface, and OPJRD has adopted that refined version.
+OPJRD's circle-and-rod interface for the JRD task was modelled on a
+custom-written program that was used by Amy Shelton and Timothy McNamara
+(Shelton & McNamara, 1997). Christopher Nolan later refined this interface, and
+OPJRD has adopted that refined version.
 
-Development of OPJRD has been assisted by AI coding agents. All design decisions, code changes, tests, documentation, and releases remain under the responsibility of Naohide Yamamoto.
+Development of OPJRD has been assisted by AI coding agents. All design
+decisions, code changes, tests, documentation, and releases remain under the
+responsibility of Naohide Yamamoto.
 
 ## Citation
 
 If you use OPJRD in academic work, please cite it as:
 
-> Yamamoto, N. (2026). _Object Placement and Judgement of Relative Direction Program_ (Version 0.1.2) [Computer software]. [https://github.com/naohide-yamamoto/opjrd](https://github.com/naohide-yamamoto/opjrd)
+> Yamamoto, N. (2026). _Object Placement and Judgement of Relative Direction
+Program_ (Version 0.1.2) [Computer software].
+[https://github.com/naohide-yamamoto/opjrd](https://github.com/naohide-yamamoto/opjrd)
 
-In addition, because OPJRD uses jsPsych, please cite de Leeuw et al. (2023) as well.
+In addition, because OPJRD uses jsPsych, please cite de Leeuw et al. (2023) as
+well.
+
+If you use OPJRD online with JATOS, please cite Lange et al. (2015).
 
 ## References
 
-de Leeuw, J.R., Gilbert, R.A., & Luchterhandt, B. (2023). jsPsych: Enabling an open-source collaborative ecosystem of behavioral experiments. _Journal of Open Source Software_, _8_(85), Article 5351. [https://doi.org/10.21105/joss.05351](https://doi.org/10.21105/joss.05351)
+de Leeuw, J.R., Gilbert, R.A., & Luchterhandt, B. (2023). jsPsych: Enabling an
+open-source collaborative ecosystem of behavioral experiments. _Journal of Open
+Source Software_, _8_(85), Article 5351. [https://doi.org/10.21105/joss.05351](https://doi.org/10.21105/joss.05351)
 
-Shelton, A. L., & McNamara, T. P. (1997). Multiple views of spatial memory. _Psychonomic Bulletin & Review_, _4_(1), 102–106. [https://doi.org/10.3758/BF03210780](https://doi.org/10.3758/BF03210780)
+Lange, K., Kühn, S., & Filevich, E. (2015). "Just Another Tool for Online
+Studies” (JATOS): An easy solution for setup and management of web servers
+supporting online studies. _PLOS ONE_, _10_(6), Article e0130834.
+[https://doi.org/10.1371/journal.pone.0130834](https://doi.org/10.1371/journal.pone.0130834)
+
+Shelton, A. L., & McNamara, T. P. (1997). Multiple views of spatial memory.
+_Psychonomic Bulletin & Review_, _4_(1), 102–106.
+[https://doi.org/10.3758/BF03210780](https://doi.org/10.3758/BF03210780)

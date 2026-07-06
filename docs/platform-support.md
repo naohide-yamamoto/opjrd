@@ -5,11 +5,12 @@ limits.
 
 ## Current Support Scope
 
-The current release is scoped to:
+The current validated support scope is:
 
 - macOS browser use in recent Chrome, Safari, and Firefox
 - Windows browser use in recent Chrome, Edge, and Firefox
 - a signed and notarised packaged macOS app
+- JATOS deployment on the validated JATOS workflow
 
 The packaged macOS app has been tested on Apple Silicon and Intel Mac. The
 macOS app is built as a universal app.
@@ -21,12 +22,16 @@ macOS app is built as a universal app.
 | macOS browser mode | Smoke-tested in Chrome, Safari, and Firefox |
 | Windows browser mode | Smoke-tested in Chrome, Edge, and Firefox |
 | Packaged macOS app | Smoke-tested on Apple Silicon and Intel Mac |
+| JATOS deployment | Smoke-tested on JATOS 3.10.5 with Chrome on macOS |
 
 These checks cover both `object_placement` and `jrd` modes with representative
 example configs. Browser checks include config loading, trial execution, local
 JSON/CSV downloads, and post-save navigation. Packaged macOS app checks include
 installation and launch, local config/file loading, trial execution, fullscreen
 behaviour, local saving, post-save navigation, and GUI config editing.
+JATOS checks include `jatos.html` loading, JATOS metadata capture, JSON result
+data, JSON result-file upload, CSV result-file upload, and `FINISHED` result
+state.
 
 ## Browser Mode
 
@@ -56,18 +61,24 @@ GUI-editor control sizing, may vary between Apple Silicon and Intel Mac.
 They are optimised for Apple Silicon Mac. These differences have not affected
 experiment functionality in testing.
 
+## JATOS Deployment
+
+OPJRD's JATOS workflow uses `dist/jatos.html`, which loads the JATOS runtime and
+then starts the shared browser-first experiment core. The initial smoke test
+passed on JATOS 3.10.5 with Chrome on macOS Tahoe 26.4 in both
+`object_placement` and `jrd` modes.
+
+Before using JATOS in a real study, repeat representative smoke testing on the
+target JATOS server and participant browser set.
+
 ## Not Currently Supported
 
-The current release does not claim support for:
+The current validated support scope does not claim support for:
 
 - Windows packaged apps
 - Linux browser workflows
 - Linux packaged apps
-- JATOS deployment
 - mobile platforms
-
-JATOS deployment should remain pending until the workflow is validated on the
-target JATOS server.
 
 ## Additional Validation
 

@@ -63,10 +63,10 @@ strings.
 
 ## JATOS
 
-The JATOS integration targets JATOS 3.10.x. OPJRD does not bundle JATOS or
-`jatos.js`; `dist/jatos.html` loads `jatos.js` from the JATOS server at runtime.
-JATOS deployment therefore has a runtime server dependency rather than an npm or
-Cargo dependency.
+The JATOS integration targets JATOS 3.10.x and has passed initial smoke-testing
+on JATOS 3.10.5. OPJRD does not bundle JATOS or `jatos.js`; `dist/jatos.html`
+loads `jatos.js` from the JATOS server at runtime. JATOS deployment therefore
+has a runtime server dependency rather than an npm or Cargo dependency.
 
 ## Upgrade Process
 

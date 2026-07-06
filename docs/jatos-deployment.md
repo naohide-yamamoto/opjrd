@@ -1,13 +1,15 @@
 # JATOS Deployment
 
 This document describes OPJRD's JATOS integration path for validation and
-deployment. JATOS support should be smoke-tested on the target server before it
-is advertised as supported for a study.
+deployment. OPJRD's JATOS workflow has passed an initial smoke test, but should
+still be smoke-tested on the target server before it is used for a real study.
 
 ## Target Runtime
 
 The JATOS integration targets the JATOS 3.10.x `jatos.js` API. OPJRD uses
 JATOS as a runtime adapter rather than bundling JATOS itself.
+
+The initial JATOS smoke test used JATOS 3.10.5.
 
 ## Build Output
 
@@ -109,7 +111,8 @@ embedded `config` object in component input is not copied into
 
 ## Validation Checklist
 
-Before using JATOS for a real study, smoke-test at least:
+Before using JATOS for a real study on a new server or browser/operating-system
+combination, smoke-test at least:
 
 - config loading from `configPath`
 - participant metadata collection
