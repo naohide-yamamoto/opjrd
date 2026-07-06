@@ -4,6 +4,12 @@
 browser-first spatial-memory application for running object-placement and
 judgement-of-relative-direction tasks from one shared experiment core.
 
+OPJRD is intended to support multiple deployment paths across desktop
+platforms. It can run in a browser on macOS and Windows, with Linux browser
+support planned for the future. It can also be used as a standalone desktop app,
+currently on macOS, with Windows and potentially Linux app versions planned for
+future validation. OPJRD can also be deployed online through JATOS.
+
 ## Task Structure and A/B/C Wording
 
 OPJRD is designed for spatial-memory tasks in which participants first learn a
