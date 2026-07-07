@@ -177,7 +177,7 @@ responsibility of [Naohide Yamamoto](https://naohide.yamamoto.phd/).
 If you use OPJRD in academic work, please cite it as:
 
 > Yamamoto, N. (2026). _Object Placement and Judgement of Relative Direction
-Program_ (Version 0.1.2) [Computer software].
+Program_ (Version 0.2.0) [Computer software].
 [https://github.com/naohide-yamamoto/opjrd](https://github.com/naohide-yamamoto/opjrd)
 
 In addition, because OPJRD uses jsPsych, please cite de Leeuw et al. (2023) as

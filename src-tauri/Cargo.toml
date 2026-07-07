@@ -1,6 +1,6 @@
 [package]
 name = "opjrd"
-version = "0.1.2"
+version = "0.2.0"
 description = "Object Placement and Judgement of Relative Direction Program"
 authors = ["Naohide Yamamoto"]
 license = "MIT"

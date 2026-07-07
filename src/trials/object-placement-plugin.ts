@@ -46,7 +46,7 @@ import { createTrialPhaseRuntime } from "./trial-state";
 
 const info = {
   name: "opjrd-object-placement",
-  version: "0.1.2",
+  version: "0.2.0",
   parameters: {
     trial_geometry: {
       type: ParameterType.OBJECT,

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.0 - 2026-07-07
+
 ### Added
 
 - Added the initial JATOS component entry, config-loading path, result-data

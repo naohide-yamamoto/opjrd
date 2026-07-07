@@ -1,7 +1,7 @@
 {
   "name": "opjrd",
-  "version": "0.1.2",
-  "description": "Software for testing spatial layout memory using object placement and judgement-of-relative-direction tasks.",
+  "version": "0.2.0",
+  "description": "Software for testing spatial memory using object placement and judgement of relative direction tasks.",
   "type": "module",
   "private": false,
   "license": "MIT",

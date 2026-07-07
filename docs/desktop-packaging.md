@@ -85,7 +85,7 @@ file next to the generated DMG. The checksum file uses the same filename as the
 DMG with `.sha256` appended, for example:
 
 ```text
-OPJRD_0.1.2_universal.dmg.sha256
+OPJRD_0.2.0_universal.dmg.sha256
 ```
 
 The DMG window layout and drag-to-Applications background are configured in

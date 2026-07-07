@@ -23,7 +23,7 @@ function minimalSession(): SessionEnvelope {
   return {
     session_id: "session-00000001",
     app_name: "Object Placement and Judgement of Relative Direction Program",
-    app_version: "0.1.2",
+    app_version: "0.2.0",
     experiment_name: "JATOS test",
     task_mode: "object_placement",
     locale: "en-AU",
