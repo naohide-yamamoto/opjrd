@@ -119,9 +119,9 @@ baseline, the public limitations are:
 - Windows packaged apps are not supported.
 - Linux browser workflows are not supported.
 - Linux packaged apps are not supported.
-- JATOS deployment has passed initial smoke testing on JATOS 3.10.5 with Chrome
-  on macOS; repeat representative JATOS smoke testing when the target server or
-  participant browser set changes.
+- JATOS deployment has passed pilot-style testing on JATOS 3.10.5 with the
+  validated macOS and Windows desktop browser set; repeat representative JATOS
+  smoke testing when the target server or participant browser set changes.
 - Mobile platforms are not supported.
 
 Do not claim support for a platform, browser, or deployment workflow until both

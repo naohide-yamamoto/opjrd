@@ -12,8 +12,9 @@ signed and notarised packaged macOS app. The packaged app has been tested on
 Apple Silicon and Intel Mac.
 
 The JATOS workflow is documented separately in `docs/jatos-deployment.md`. It
-has passed initial smoke-testing on JATOS 3.10.5 with Chrome on macOS. Validate
-it on the target JATOS server before using it for a real online study.
+has passed pilot-style testing on JATOS 3.10.5 with the validated macOS and
+Windows desktop browser set. Validate it on the target JATOS server before
+using it for a real online study.
 
 ## Running OPJRD in a Browser
 

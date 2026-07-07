@@ -8,7 +8,7 @@ OPJRD is intended to support multiple deployment paths across desktop
 platforms. It can run in a browser on macOS and Windows, with Linux browser
 support planned for the future. It can also be used as a standalone desktop app,
 currently on macOS, with Windows and potentially Linux app versions planned for
-future validation. OPJRD can also be deployed online through JATOS.
+future validation. OPJRD can also be deployed online through [JATOS](https://www.jatos.org/).
 
 ## Task Structure and A/B/C Wording
 
@@ -32,10 +32,10 @@ role objects as displayed on a trial interface.
 The current validated baseline covers macOS browser use in recent Chrome,
 Safari, and Firefox, Windows browser use in recent Chrome, Edge, and Firefox,
 plus a signed and notarised packaged macOS app. The macOS packaged app has been
-tested on Apple Silicon and Intel Mac. JATOS integration has passed initial
-smoke-testing on JATOS 3.10.5 with Chrome on macOS, and should be smoke-tested
-on the target JATOS server before it is used for a real study. The current
-browser core includes:
+tested on Apple Silicon and Intel Mac. JATOS integration has passed
+pilot-style testing on JATOS 3.10.5 with the validated macOS and Windows
+desktop browser set, and should be smoke-tested on the target JATOS server
+before it is used for a real study. The current browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core
@@ -160,17 +160,17 @@ preserving text labels as the fallback.
 
 ## Acknowledgements
 
-OPJRD uses jsPsych (de Leeuw et al., 2023) for browser-based experiment
+OPJRD uses [jsPsych](https://www.jspsych.org/) for browser-based experiment
 sequencing and response-data collection.
 
 OPJRD's circle-and-rod interface for the JRD task was modelled on a
 custom-written program that was used by Amy Shelton and Timothy McNamara
-(Shelton & McNamara, 1997). Christopher Nolan later refined this interface, and
-OPJRD has adopted that refined version.
+(Shelton & McNamara, 1997). [Christopher Nolan](https://github.com/crnolan)
+later refined this interface, and OPJRD has adopted that refined version.
 
 Development of OPJRD has been assisted by AI coding agents. All design
 decisions, code changes, tests, documentation, and releases remain under the
-responsibility of Naohide Yamamoto.
+responsibility of [Naohide Yamamoto](https://naohide.yamamoto.phd/).
 
 ## Citation
 

@@ -22,7 +22,7 @@ macOS app is built as a universal app.
 | macOS browser mode | Smoke-tested in Chrome, Safari, and Firefox |
 | Windows browser mode | Smoke-tested in Chrome, Edge, and Firefox |
 | Packaged macOS app | Smoke-tested on Apple Silicon and Intel Mac |
-| JATOS deployment | Smoke-tested on JATOS 3.10.5 with Chrome on macOS |
+| JATOS deployment | Pilot-tested on JATOS 3.10.5 with the validated macOS and Windows desktop browser set |
 
 These checks cover both `object_placement` and `jrd` modes with representative
 example configs. Browser checks include config loading, trial execution, local
@@ -64,9 +64,9 @@ experiment functionality in testing.
 ## JATOS Deployment
 
 OPJRD's JATOS workflow uses `dist/jatos.html`, which loads the JATOS runtime and
-then starts the shared browser-first experiment core. The initial smoke test
-passed on JATOS 3.10.5 with Chrome on macOS Tahoe 26.4 in both
-`object_placement` and `jrd` modes.
+then starts the shared browser-first experiment core. Pilot-style testing has
+passed on JATOS 3.10.5 with the validated macOS and Windows desktop browser set
+in both `object_placement` and `jrd` modes.
 
 Before using JATOS in a real study, repeat representative smoke testing on the
 target JATOS server and participant browser set.
