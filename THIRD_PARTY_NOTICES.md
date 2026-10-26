@@ -24,8 +24,8 @@ asset provenance.
 | `eslint` | `9.39.1` | MIT |
 | `typescript` | `5.9.3` | Apache-2.0 |
 | `typescript-eslint` | `8.59.2` | MIT |
-| `vite` | `8.0.16` | MIT |
-| `vitest` | `4.1.5` | MIT |
+| `vite` | `8.1.6` | MIT |
+| `vitest` | `4.1.12` | MIT |
 
 ## Direct Rust and Tauri Dependencies
 

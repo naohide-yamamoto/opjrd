@@ -108,6 +108,24 @@ Release DMG signing, notarisation, stapling, and Gatekeeper checks are
 maintainer release tasks that require the relevant Apple Developer credentials
 and signing identities.
 
+## Continuous Integration
+
+The CI workflow checks pull requests to `main`, pushes to `main`, and manual
+workflow runs. It runs npm auditing, linting and privacy checks, unit and
+golden-output tests, and the browser/JATOS production build. A separate Rust
+audit job checks the locked desktop dependencies under the policy described
+in [Dependency Versions and Provenance](dependencies.md#automated-dependency-checks).
+
+The macOS build matrix compiles desktop executables for Apple Silicon and
+Intel Mac with the production frontend assets embedded. These are unsigned
+debug builds, not release packages or interactive smoke tests. CI uses Node.js
+24 and Rust 1.95.0, with official GitHub actions pinned to commit hashes and
+read-only repository permissions. It does not need Apple signing credentials.
+
+When editing the workflow, validate it with `actionlint` as well as running the
+affected commands locally. Build success does not replace the manual browser,
+JATOS, and packaged-app checks required before release.
+
 ## Config and Editor Validation
 
 `config.json` is the canonical settings model. The GUI settings editor must
@@ -167,6 +185,8 @@ Before a public release candidate:
 - run `npm run build`
 - run `npm run lint`
 - run `npm run privacy:scan` if lint was not run
+- run `npm run audit:npm` and `npm run audit:rust:mac`, following the
+  [dependency audit policy](dependencies.md#automated-dependency-checks)
 - smoke-test supported browser, Tauri, and JATOS workflows
 - build the universal macOS app
 - sign, notarise, staple, and Gatekeeper-test the release DMG

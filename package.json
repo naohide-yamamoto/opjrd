@@ -1,6 +1,6 @@
 {
   "name": "opjrd",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Software for testing spatial memory using object placement and judgement of relative direction tasks.",
   "type": "module",
   "private": false,
@@ -20,6 +20,8 @@
     "test:watch": "vitest",
     "lint": "eslint . && npm run privacy:scan",
     "privacy:scan": "node scripts/privacy-scan.mjs",
+    "audit:npm": "npm audit --package-lock-only --ignore-scripts",
+    "audit:rust:mac": "node scripts/audit-rust-macos.mjs",
     "release:checksum:mac-dmg": "node scripts/write-dmg-checksums.mjs"
   },
   "dependencies": {
@@ -37,8 +39,8 @@
     "eslint": "9.39.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.2",
-    "vite": "8.0.16",
-    "vitest": "4.1.5"
+    "vite": "8.1.6",
+    "vitest": "4.1.12"
   },
   "engines": {
     "node": ">=22.12.0"
