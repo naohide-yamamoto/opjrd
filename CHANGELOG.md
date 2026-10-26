@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+## 0.2.1 - 2026-10-26
+
+### Security
+
+- Updated Vite, Vitest, and affected npm transitive dependencies to address
+  known security advisories.
+- Updated Rust dependencies, including `serde_with`, `anyhow`, `tokio`, and
+  `quick-xml`, to address known security advisories.
+- Added automated npm and macOS-scoped Rust dependency audits. The unresolved
+  `glib` advisory remains documented for the unsupported Linux desktop path;
+  it does not affect the packaged macOS app or browser/JATOS builds.
+
+### Changed
+
+- Hardened CI with commit-pinned GitHub actions, read-only permissions, and
+  separate Apple Silicon and Intel Mac build checks.
+- Updated dependency and release guidance. Experiment configuration, trial
+  timing, scoring, and output schemas are unchanged.
+
 ## 0.2.0 - 2026-07-07
 
 ### Added

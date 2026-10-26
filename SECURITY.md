@@ -6,8 +6,8 @@ Security fixes are considered for the latest public release of OPJRD.
 
 | Version | Supported |
 | --- | --- |
-| 0.2.0 | Yes |
-| 0.1.2 and earlier | No |
+| 0.2.1 | Yes |
+| 0.2.0 and earlier | No |
 
 The current support scope is:
 
@@ -17,6 +17,14 @@ The current support scope is:
 - JATOS deployment on the validated JATOS workflow
 
 Windows packaged apps, Linux workflows, and mobile workflows are not supported.
+
+## Known Dependency Limitation
+
+The Rust lockfile includes a known `glib` advisory in the unsupported Linux
+desktop dependency path. It does not affect OPJRD's packaged macOS app or its
+browser/JATOS builds. The dependency constraints, platform scope, and required
+follow-up are documented in
+[Dependency Versions and Provenance](docs/dependencies.md#known-dependency-limitation).
 
 ## Reporting a Vulnerability
 

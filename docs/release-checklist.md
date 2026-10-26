@@ -5,8 +5,11 @@ completed before tagging a release or attaching packaged artefacts.
 
 ## Scope Check
 
-- Confirm the release version in `package.json`, `src-tauri/Cargo.toml`, and
-  `CITATION.cff`.
+- Confirm the release version in `package.json`, `package-lock.json`,
+  `src-tauri/Cargo.toml`, `src-tauri/Cargo.lock`, `src-tauri/tauri.conf.json`,
+  session output, trial-plugin metadata, and `CITATION.cff`.
+- Confirm the changelog and citation release dates match the publication date,
+  and the README citation and packaging examples use the release version.
 - Confirm the public support scope in `docs/platform-support.md`.
 - Confirm the JATOS support statement matches the current JATOS validation
   status.
@@ -23,7 +26,12 @@ Run these checks from the public project root:
 npm test
 npm run build
 npm run lint
+npm run audit:npm
 ```
+
+Confirm that GitHub CI passes for the commit intended for release, including
+the Rust audit and both macOS build targets. Local checks do not replace the
+hosted workflow run.
 
 If `npm run lint` is not run, run the privacy scan separately:
 
@@ -31,11 +39,18 @@ If `npm run lint` is not run, run the privacy scan separately:
 npm run privacy:scan
 ```
 
-For macOS desktop release candidates, also build the universal app:
+For macOS desktop release candidates, install the audit tool listed in
+[Dependency Versions and Provenance](dependencies.md#automated-dependency-checks),
+then audit the Rust lockfile and build the universal app:
 
 ```sh
+npm run audit:rust:mac
 npm run tauri:build:mac
 ```
+
+Review audit output, including unmaintained-crate notices and the documented
+Linux-only `glib` exception. Do not treat a passing macOS audit as approval for
+other desktop targets or suppress new findings without a specific assessment.
 
 For a distributable macOS package, follow `docs/desktop-packaging.md` for DMG
 creation, signing, notarisation, stapling, checksum generation, and Gatekeeper
@@ -50,10 +65,11 @@ npm run release:checksum:mac-dmg
 
 ## Manual Smoke Tests
 
-Run at least one object-placement session and one JRD session in each supported
-runtime being claimed for the release.
+For releases that change experiment behaviour or add support for a platform or
+runtime, run at least one object-placement session and one JRD session in each
+affected runtime being claimed for the release.
 
-For each runtime, check:
+Use the following checks for each affected runtime:
 
 - app launch or browser startup
 - config loading
@@ -65,6 +81,18 @@ For each runtime, check:
 - local JSON saving
 - optional CSV saving
 - post-save navigation
+
+For dependency-only maintenance releases with no intended experiment-behaviour
+or support-scope changes, a focused regression pass may replace repeating the
+full platform matrix. Cover both task modes, text and image stimuli, native
+config editing and saving, ordinary-browser downloads, and JATOS metadata and
+result uploads with the final `FINISHED` state. Record the tested build, exact
+environment versions, outcomes, and rationale for the reduced scope. Broaden
+testing if a dependency change affects a particular platform or any regression
+appears. This does not establish support for previously untested combinations.
+
+Focused regression testing does not replace validation of the final signed and
+notarised distribution package, its installation and launch, and its checksum.
 
 ## Privacy and Local-Machine-Detail Review
 

@@ -5,23 +5,40 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  RUSTUP_TOOLCHAIN: "1.95.0"
 
 jobs:
   browser-core:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - name: Check Out Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - name: Set Up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Dependencies
+        run: npm ci --no-audit
+
+      - name: Audit npm Dependencies
+        run: npm run audit:npm
 
       - name: Lint
         run: npm run lint
@@ -31,3 +48,60 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  rust-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set Up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+          package-manager-cache: false
+
+      - name: Set Up Rust
+        run: rustup toolchain install "$RUSTUP_TOOLCHAIN" --profile minimal
+
+      - name: Install cargo-audit
+        run: cargo install cargo-audit --version 0.22.2 --locked
+
+      - name: Audit Rust Dependencies for the macOS Release
+        run: npm run audit:rust:mac
+
+  macos-rust:
+    runs-on: macos-15
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [aarch64-apple-darwin, x86_64-apple-darwin]
+
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set Up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci --no-audit
+
+      - name: Build Frontend Assets
+        run: npm run build
+
+      - name: Set Up Rust
+        run: rustup toolchain install "$RUSTUP_TOOLCHAIN" --profile minimal --target "${{ matrix.target }}"
+
+      - name: Build Desktop Executable
+        run: cargo build --manifest-path src-tauri/Cargo.toml --locked --target "${{ matrix.target }}" --features tauri/custom-protocol
