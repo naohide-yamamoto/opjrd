@@ -211,6 +211,9 @@ describe("config model", () => {
     ).toThrow(
       /Config error: zeroDirection must not be a zero-length vector\./u
     );
+    expect(() =>
+      normaliseExperimentConfig({ zeroDirection: { x: 0, y: 0 } })
+    ).toThrowError(expect.objectContaining({ cause: expect.any(Error) }));
   });
 
   it("rejects explicit blank zero-direction components", () => {

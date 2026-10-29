@@ -111,6 +111,22 @@ describe("experiment model fixtures", () => {
     expect(model.trials).toHaveLength(1);
   });
 
+  it("preserves the underlying file-loading error without changing its message", async () => {
+    const cause = new Error("File not found.");
+    await expect(loadExperimentModel(normaliseExperimentConfig({}), {
+      loadAssetUrl: async (path: string) => `asset:${path}`,
+      loadTextFile: async (path: string) => {
+        if (path === "locations.csv") {
+          throw cause;
+        }
+        return "trial_id,location,direction,target\n1,A,B,C\n";
+      },
+    })).rejects.toMatchObject({
+      message: "Could not load locations file: locations.csv. File not found.",
+      cause,
+    });
+  });
+
   it("reports missing browser locations files before CSV parsing", async () => {
     const config = normaliseExperimentConfig({ locationsFile: "location.csv" });
     vi.stubGlobal(

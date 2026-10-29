@@ -198,7 +198,9 @@ async function loadRequiredExperimentText(
       error instanceof Error && error.message.length > 0
         ? ` ${error.message}`
         : "";
-    throw new Error(`Could not load ${label} file: ${path}.${detail}`);
+    throw new Error(`Could not load ${label} file: ${path}.${detail}`, {
+      cause: error,
+    });
   }
 }
 

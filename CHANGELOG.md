@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+### Changed
+
+- Moved the development and CI baseline to Node.js 26.13.0 LTS.
+- Updated ESLint, TypeScript lint tooling, and Node.js types, along with the
+  Tauri CLI, dialog/filesystem plugins, and Rust base64 dependency.
+- Preserved underlying causes in config/file-loading errors without changing
+  their user-facing messages, and added a native image-encoding regression test.
+- Confirmed JATOS 3.11.3 compatibility in Chrome on macOS for both task modes.
+- Verified the updated universal macOS app on Apple Silicon for both task
+  modes, image stimuli, local saving, and config-editor save/reopen.
+
 ## 0.2.1 - 2026-10-26
 
 ### Security

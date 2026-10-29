@@ -31,7 +31,7 @@ jobs:
       - name: Set Up Node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: "24"
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install Dependencies
@@ -62,7 +62,7 @@ jobs:
       - name: Set Up Node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: "24"
+          node-version-file: .nvmrc
           package-manager-cache: false
 
       - name: Set Up Rust
@@ -91,7 +91,7 @@ jobs:
       - name: Set Up Node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: "24"
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install Dependencies
@@ -105,3 +105,6 @@ jobs:
 
       - name: Build Desktop Executable
         run: cargo build --manifest-path src-tauri/Cargo.toml --locked --target "${{ matrix.target }}" --features tauri/custom-protocol
+
+      - name: Test Desktop Asset Loading on the Runner
+        run: cargo test --manifest-path src-tauri/Cargo.toml --lib --locked --features tauri/custom-protocol

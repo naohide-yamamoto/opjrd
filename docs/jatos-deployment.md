@@ -9,7 +9,10 @@ still be smoke-tested on the target server before it is used for a real study.
 The JATOS integration targets the JATOS 3.10.x `jatos.js` API. OPJRD uses
 JATOS as a runtime adapter rather than bundling JATOS itself.
 
-The current JATOS validation used JATOS 3.10.5.
+Validation covers JATOS 3.10.5 with the supported macOS and Windows desktop
+browser set, plus JATOS 3.11.3 in Chrome on macOS. Both task modes, metadata,
+JSON/CSV uploads, and study completion have been checked on both server
+versions. Repeat these checks on the target server before collecting data.
 
 ## Build Output
 

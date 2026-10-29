@@ -34,8 +34,9 @@ Safari, and Firefox, Windows browser use in recent Chrome, Edge, and Firefox,
 plus a signed and notarised packaged macOS app. The macOS packaged app has been
 tested on Apple Silicon and Intel Mac. JATOS integration has passed
 pilot-style testing on JATOS 3.10.5 with the validated macOS and Windows
-desktop browser set, and should be smoke-tested on the target JATOS server
-before it is used for a real study. The current browser core includes:
+desktop browser set, plus smoke testing on JATOS 3.11.3 in Chrome on macOS.
+It should be smoke-tested on the target JATOS server before it is used for a
+real study. The current browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core

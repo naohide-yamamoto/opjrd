@@ -13,8 +13,9 @@ Apple Silicon and Intel Mac.
 
 The JATOS workflow is documented separately in `docs/jatos-deployment.md`. It
 has passed pilot-style testing on JATOS 3.10.5 with the validated macOS and
-Windows desktop browser set. Validate it on the target JATOS server before
-using it for a real online study.
+Windows desktop browser set, plus smoke testing on JATOS 3.11.3 in Chrome on
+macOS. Validate it on the target JATOS server before using it for a real online
+study.
 
 ## Running OPJRD in a Browser
 
