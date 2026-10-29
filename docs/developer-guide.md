@@ -8,7 +8,7 @@ with a Tauri desktop wrapper. User-facing experiment setup is covered in
 
 OPJRD currently expects:
 
-- Node.js `>=22.12.0`
+- Node.js `26.13.0` LTS, pinned in `.nvmrc` for development and CI
 - npm
 - Rust/Cargo for Tauri development
 - macOS Rust targets for universal macOS packaging:
@@ -17,6 +17,12 @@ OPJRD currently expects:
 
 Do not copy private support materials, participant data, secrets, or local
 machine paths into the public repository.
+
+The tooling accepts compatible Node.js 26 releases (`^26.13.0`); use the pinned
+version when reproducing CI. With nvm installed, run `nvm install` and `nvm use`
+from the project root. Other Node version managers or the official Node.js
+distribution can also provide this version. Node.js is needed for development
+and builds, not for participants running the built app or a hosted study.
 
 ## Repository Layout
 
@@ -118,9 +124,11 @@ in [Dependency Versions and Provenance](dependencies.md#automated-dependency-che
 
 The macOS build matrix compiles desktop executables for Apple Silicon and
 Intel Mac with the production frontend assets embedded. These are unsigned
-debug builds, not release packages or interactive smoke tests. CI uses Node.js
-24 and Rust 1.95.0, with official GitHub actions pinned to commit hashes and
-read-only repository permissions. It does not need Apple signing credentials.
+debug builds, not release packages or interactive smoke tests. CI also runs
+the native image-loading regression test on each macOS runner. CI uses Node.js
+26.13.0 from `.nvmrc` and Rust 1.95.0, with official GitHub actions pinned to
+commit hashes and read-only repository permissions. It does not need Apple
+signing credentials.
 
 When editing the workflow, validate it with `actionlint` as well as running the
 affected commands locally. Build success does not replace the manual browser,

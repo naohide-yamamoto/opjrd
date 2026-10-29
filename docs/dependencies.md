@@ -8,6 +8,8 @@ direct dependencies are pinned with exact `=` requirements in
 Dependencies should be upgraded deliberately, with geometry, timing, output,
 browser, and Tauri checks run before release.
 
+The development and CI Node.js baseline is `26.13.0` LTS, recorded in `.nvmrc`.
+
 ## JavaScript Runtime Dependencies
 
 | Package | Version | Licence |
@@ -15,20 +17,20 @@ browser, and Tauri checks run before release.
 | `@jspsych/plugin-html-button-response` | `2.1.0` | MIT |
 | `@jspsych/plugin-html-keyboard-response` | `2.1.0` | MIT |
 | `@tauri-apps/api` | `2.11.0` | Apache-2.0 OR MIT |
-| `@tauri-apps/plugin-dialog` | `2.7.1` | MIT OR Apache-2.0 |
-| `@tauri-apps/plugin-fs` | `2.5.1` | MIT OR Apache-2.0 |
+| `@tauri-apps/plugin-dialog` | `2.7.2` | MIT OR Apache-2.0 |
+| `@tauri-apps/plugin-fs` | `2.5.2` | MIT OR Apache-2.0 |
 | `jspsych` | `8.2.3` | MIT |
 
 ## JavaScript Development Dependencies
 
 | Package | Version | Licence |
 | --- | --- | --- |
-| `@eslint/js` | `9.39.1` | MIT |
-| `@tauri-apps/cli` | `2.11.1` | Apache-2.0 OR MIT |
-| `@types/node` | `25.6.0` | MIT |
-| `eslint` | `9.39.1` | MIT |
+| `@eslint/js` | `10.0.1` | MIT |
+| `@tauri-apps/cli` | `2.11.4` | Apache-2.0 OR MIT |
+| `@types/node` | `26.6.6` | MIT |
+| `eslint` | `10.13.0` | MIT |
 | `typescript` | `5.9.3` | Apache-2.0 |
-| `typescript-eslint` | `8.59.2` | MIT |
+| `typescript-eslint` | `8.72.1` | MIT |
 | `vite` | `8.1.6` | MIT |
 | `vitest` | `4.1.12` | MIT |
 
@@ -36,11 +38,11 @@ browser, and Tauri checks run before release.
 
 | Package | Version Requirement | Licence | Role |
 | --- | --- | --- | --- |
-| `base64` | `=0.22.1` | MIT OR Apache-2.0 | Encoding helper used by the Tauri shell |
+| `base64` | `=0.23.1` | MIT OR Apache-2.0 | Encoding helper used by the Tauri shell |
 | `tauri` | `=2.11.1` | Apache-2.0 OR MIT | Desktop application shell |
 | `tauri-build` | `=2.6.1` | Apache-2.0 OR MIT | Tauri build helper |
-| `tauri-plugin-dialog` | `=2.7.1` | Apache-2.0 OR MIT | Native file and folder dialogs |
-| `tauri-plugin-fs` | `=2.5.1` | Apache-2.0 OR MIT | Local filesystem access for Tauri workflows |
+| `tauri-plugin-dialog` | `=2.7.2` | Apache-2.0 OR MIT | Native file and folder dialogs |
+| `tauri-plugin-fs` | `=2.5.2` | Apache-2.0 OR MIT | Local filesystem access for Tauri workflows |
 
 The full Rust transitive dependency graph is locked in `src-tauri/Cargo.lock`.
 Maintainers should review the locked Rust dependency graph and update
@@ -121,10 +123,12 @@ strings.
 
 ## JATOS
 
-The JATOS integration targets JATOS 3.10.x and has passed pilot-style testing
-on JATOS 3.10.5. OPJRD does not bundle JATOS or `jatos.js`; `dist/jatos.html`
-loads `jatos.js` from the JATOS server at runtime. JATOS deployment therefore
-has a runtime server dependency rather than an npm or Cargo dependency.
+The JATOS integration uses the JATOS 3.10.x API and has been tested on JATOS
+3.10.5 and 3.11.3. Browser coverage for each server version is summarised in
+[Platform Support](platform-support.md#jatos-deployment). OPJRD does not bundle
+JATOS or `jatos.js`; `dist/jatos.html` loads `jatos.js` from the JATOS server at
+runtime. JATOS deployment therefore has a runtime server dependency rather
+than an npm or Cargo dependency.
 
 ## Upgrade Process
 

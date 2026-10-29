@@ -359,7 +359,8 @@ function validateZeroDirection(zeroDirection: Coordinate): void {
       error.message === "zeroDirection must not be a zero-length vector."
     ) {
       throw new Error(
-        "Config error: zeroDirection must not be a zero-length vector."
+        "Config error: zeroDirection must not be a zero-length vector.",
+        { cause: error }
       );
     }
 

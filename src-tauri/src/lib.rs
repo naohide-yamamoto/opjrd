@@ -346,3 +346,49 @@ pub fn run() {
         .run(tauri::generate_context!())
         .expect("error while running OPJRD");
 }
+
+#[cfg(test)]
+mod tests {
+    use super::read_experiment_asset_file;
+    use std::{
+        fs,
+        time::{SystemTime, UNIX_EPOCH},
+    };
+
+    #[test]
+    fn image_data_urls_preserve_mime_types_and_base64_bytes() {
+        let unique = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos();
+        let folder = std::env::temp_dir().join(format!("opjrd-image-{}-{unique}", std::process::id()));
+        fs::create_dir(&folder).unwrap();
+        let config_path = folder.join("config.json");
+        fs::write(&config_path, "{}").unwrap();
+
+        let cases: &[(&str, &[u8], &str)] = &[
+            ("object.svg", b"<svg/>", "data:image/svg+xml;base64,PHN2Zy8+"),
+            (
+                "object.png",
+                b"\x89PNG\r\n\x1a\n",
+                "data:image/png;base64,iVBORw0KGgo=",
+            ),
+        ];
+        let results: Vec<_> = cases
+            .iter()
+            .map(|(filename, bytes, expected)| {
+                fs::write(folder.join(filename), bytes).unwrap();
+                let actual = read_experiment_asset_file(
+                    config_path.to_string_lossy().into_owned(),
+                    (*filename).to_string(),
+                );
+                (actual, *expected)
+            })
+            .collect();
+        fs::remove_dir_all(&folder).unwrap();
+
+        for (actual, expected) in results {
+            assert_eq!(actual.unwrap(), expected);
+        }
+    }
+}
