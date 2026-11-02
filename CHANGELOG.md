@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.2.2 - 2026-11-02
+
 ### Changed
 
 - Moved the development and CI baseline to Node.js 26.13.0 LTS.
@@ -16,6 +18,15 @@
   metadata, JSON-only and JSON/CSV uploads, and study completion.
 - Verified the updated universal macOS app on Apple Silicon for both task
   modes, image stimuli, local saving, and config-editor save/reopen.
+
+### Security
+
+- Updated development-only `minimatch` to 11.0.1 using a temporary pinned
+  override to address a denial-of-service advisory in the lint toolchain.
+  Runtime dependencies and the security audit policy are unchanged.
+
+Experiment configuration, trial timing, scoring, and output schemas are
+unchanged.
 
 ## 0.2.1 - 2026-10-26
 

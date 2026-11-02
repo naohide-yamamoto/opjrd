@@ -18,8 +18,7 @@ macOS app is built as a universal app.
 
 Ubuntu validation covers an ARM64 virtual machine using GNOME and Wayland.
 Other Linux distributions, architectures, and native installations require
-further validation. The Ubuntu and MindProbe checks cover the current
-development build, not the published `v0.2.1` artefacts.
+further validation.
 
 ## Validated Workflows
 

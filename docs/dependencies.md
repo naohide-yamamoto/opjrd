@@ -34,6 +34,19 @@ The development and CI Node.js baseline is `26.13.0` LTS, recorded in `.nvmrc`.
 | `vite` | `8.1.6` | MIT |
 | `vitest` | `4.1.12` | MIT |
 
+### Temporary Lint Dependency Override
+
+`package.json` overrides `minimatch@^10` to `11.0.1` to address
+[GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249).
+ESLint, its config-array helper, and TypeScript lint tooling still declare
+version-10 ranges. The override is limited to those matching ranges and does
+not change OPJRD's runtime dependencies or weaken the audit checks.
+
+`minimatch` and its `@isaacs/nonrecursive-glob-match` dependency are
+development-only packages licensed under `BlueOak-1.0.0`. Remove the override
+when the upstream dependency ranges accept a patched version; rerun lint,
+tests, the production build, and the npm audit after changing it.
+
 ## Rust and Tauri Direct Dependencies
 
 | Package | Version Requirement | Licence | Role |

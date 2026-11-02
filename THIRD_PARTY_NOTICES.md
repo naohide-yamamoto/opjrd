@@ -27,6 +27,17 @@ asset provenance.
 | `vite` | `8.1.6` | MIT |
 | `vitest` | `4.1.12` | MIT |
 
+## Overridden Development Dependency
+
+The lint toolchain uses a temporary `minimatch` override for a security fix.
+These packages are development-only and are not bundled in OPJRD's browser,
+JATOS, or macOS app runtime.
+
+| Package | Locked Version | Licence |
+| --- | --- | --- |
+| `minimatch` | `11.0.1` | BlueOak-1.0.0 |
+| `@isaacs/nonrecursive-glob-match` | `1.0.3` | BlueOak-1.0.0 |
+
 ## Direct Rust and Tauri Dependencies
 
 | Package | Version Requirement | Licence | Role |

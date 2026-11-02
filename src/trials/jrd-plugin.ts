@@ -47,7 +47,7 @@ const JRD_DIRECTION_POSITION: Coordinate = { x: 0, y: 7 };
 
 const info = {
   name: "opjrd-jrd",
-  version: "0.2.1",
+  version: "0.2.2",
   parameters: {
     trial_geometry: {
       type: ParameterType.OBJECT,

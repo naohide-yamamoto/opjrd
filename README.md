@@ -35,13 +35,12 @@ and Ubuntu Linux browser use in Chrome and Firefox, plus a signed and notarised
 packaged macOS app. The macOS packaged app has been tested on Apple Silicon and
 Intel Mac. JATOS integration has passed pilot-style testing on JATOS 3.10.5
 with the validated macOS and Windows desktop browser set, plus JATOS 3.11.3
-testing in Chrome on macOS and
-Chrome/Firefox on Ubuntu via MindProbe. Ubuntu and MindProbe validation covers
-the current development build in an ARM64 VM, not the published `v0.2.1`
-artefacts. See [Platform Support](docs/platform-support.md) for the scope and
-remaining limits. Before a real study, repeat representative smoke testing on
-the target JATOS server and participant browser set. The current browser core
-includes:
+testing in Chrome on macOS and Chrome/Firefox on Ubuntu via MindProbe. Ubuntu
+and MindProbe validation covers an ARM64 VM; other Linux environments require
+further validation. See [Platform Support](docs/platform-support.md) for the
+scope and remaining limits. Before a real study, repeat representative smoke
+testing on the target JATOS server and participant browser set. The current
+browser core includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core
@@ -183,7 +182,7 @@ responsibility of [Naohide Yamamoto](https://naohide.yamamoto.phd/).
 If you use OPJRD in academic work, please cite it as:
 
 > Yamamoto, N. (2026). _Object Placement and Judgement of Relative Direction
-Program_ (Version 0.2.1) [Computer software].
+Program_ (Version 0.2.2) [Computer software].
 [https://github.com/naohide-yamamoto/opjrd](https://github.com/naohide-yamamoto/opjrd)
 
 In addition, because OPJRD uses jsPsych, please cite de Leeuw et al. (2023) as

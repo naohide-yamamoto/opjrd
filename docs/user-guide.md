@@ -10,7 +10,7 @@ The current validated support scope is macOS browser use in recent Chrome,
 Safari, and Firefox, Windows browser use in recent Chrome, Edge, and Firefox,
 Ubuntu Linux browser use in Chrome and Firefox, and a signed and notarised
 packaged macOS app. The packaged app has been tested on Apple Silicon and Intel
-Mac. Ubuntu validation covers the current development build in an ARM64 VM;
+Mac. Ubuntu validation covers an ARM64 VM;
 see [Platform Support](platform-support.md) for the scope and remaining limits.
 
 The JATOS workflow is documented separately in `docs/jatos-deployment.md`. It
