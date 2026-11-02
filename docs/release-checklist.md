@@ -143,14 +143,18 @@ baseline, the public limitations are:
   in the current development baseline.
 - Windows Chrome, Edge, and Firefox browser workflows have passed smoke testing
   in the current development baseline.
+- Ubuntu Chrome and Firefox browser workflows have passed smoke testing in an
+  ARM64 VM using GNOME and Wayland, in the current development baseline.
 - The packaged macOS app has been tested on Apple Silicon and Intel Mac.
 - Windows packaged apps are not supported.
-- Linux browser workflows are not supported.
+- Other Linux distributions, architectures, and native installations require
+  further browser validation.
 - Linux packaged apps are not supported.
 - JATOS deployment has passed pilot-style testing on JATOS 3.10.5 with the
-  validated macOS and Windows desktop browser set, plus smoke testing on
-  JATOS 3.11.3 in Chrome on macOS. Repeat representative JATOS smoke testing
-  when the target server or participant browser set changes.
+  validated macOS and Windows desktop browser set, plus JATOS 3.11.3 testing
+  in Chrome on macOS and Chrome/Firefox on Ubuntu via MindProbe. Repeat
+  representative JATOS smoke testing when the target server or participant
+  browser set changes.
 - Mobile platforms are not supported.
 
 Do not claim support for a platform, browser, or deployment workflow until both

@@ -5,10 +5,10 @@ browser-first spatial-memory application for running object-placement and
 judgement-of-relative-direction tasks from one shared experiment core.
 
 OPJRD is intended to support multiple deployment paths across desktop
-platforms. It can run in a browser on macOS and Windows, with Linux browser
-support planned for the future. It can also be used as a standalone desktop app,
-currently on macOS, with Windows and potentially Linux app versions planned for
-future validation. OPJRD can also be deployed online through [JATOS](https://www.jatos.org/).
+platforms. It can run in a browser on macOS, Windows, and Ubuntu Linux. It can
+also be used as a standalone desktop app, currently on macOS, with Windows and
+potentially Linux app versions planned for future validation. OPJRD can also
+be deployed online through [JATOS](https://www.jatos.org/).
 
 ## Task Structure and A/B/C Wording
 
@@ -31,12 +31,17 @@ role objects as displayed on a trial interface.
 
 The current validated baseline covers macOS browser use in recent Chrome,
 Safari, and Firefox, Windows browser use in recent Chrome, Edge, and Firefox,
-plus a signed and notarised packaged macOS app. The macOS packaged app has been
-tested on Apple Silicon and Intel Mac. JATOS integration has passed
-pilot-style testing on JATOS 3.10.5 with the validated macOS and Windows
-desktop browser set, plus smoke testing on JATOS 3.11.3 in Chrome on macOS.
-It should be smoke-tested on the target JATOS server before it is used for a
-real study. The current browser core includes:
+and Ubuntu Linux browser use in Chrome and Firefox, plus a signed and notarised
+packaged macOS app. The macOS packaged app has been tested on Apple Silicon and
+Intel Mac. JATOS integration has passed pilot-style testing on JATOS 3.10.5
+with the validated macOS and Windows desktop browser set, plus JATOS 3.11.3
+testing in Chrome on macOS and
+Chrome/Firefox on Ubuntu via MindProbe. Ubuntu and MindProbe validation covers
+the current development build in an ARM64 VM, not the published `v0.2.1`
+artefacts. See [Platform Support](docs/platform-support.md) for the scope and
+remaining limits. Before a real study, repeat representative smoke testing on
+the target JATOS server and participant browser set. The current browser core
+includes:
 
 - current config, output, timing, geometry, and scoring documentation
 - a Vite and jsPsych browser core

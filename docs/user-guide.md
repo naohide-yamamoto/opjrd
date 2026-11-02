@@ -6,16 +6,18 @@ folders. Detailed configuration and output-field references are in
 
 ## Current Support Scope
 
-The current release support scope is macOS browser use in recent Chrome, Safari,
-and Firefox, Windows browser use in recent Chrome, Edge, and Firefox, plus a
-signed and notarised packaged macOS app. The packaged app has been tested on
-Apple Silicon and Intel Mac.
+The current validated support scope is macOS browser use in recent Chrome,
+Safari, and Firefox, Windows browser use in recent Chrome, Edge, and Firefox,
+Ubuntu Linux browser use in Chrome and Firefox, and a signed and notarised
+packaged macOS app. The packaged app has been tested on Apple Silicon and Intel
+Mac. Ubuntu validation covers the current development build in an ARM64 VM;
+see [Platform Support](platform-support.md) for the scope and remaining limits.
 
 The JATOS workflow is documented separately in `docs/jatos-deployment.md`. It
 has passed pilot-style testing on JATOS 3.10.5 with the validated macOS and
-Windows desktop browser set, plus smoke testing on JATOS 3.11.3 in Chrome on
-macOS. Validate it on the target JATOS server before using it for a real online
-study.
+Windows desktop browser set, plus JATOS 3.11.3 testing in Chrome on macOS and
+Chrome/Firefox on Ubuntu via MindProbe. Validate it on the target JATOS server
+before using it for a real online study.
 
 ## Running OPJRD in a Browser
 

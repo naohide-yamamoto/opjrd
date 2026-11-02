@@ -10,9 +10,11 @@ The JATOS integration targets the JATOS 3.10.x `jatos.js` API. OPJRD uses
 JATOS as a runtime adapter rather than bundling JATOS itself.
 
 Validation covers JATOS 3.10.5 with the supported macOS and Windows desktop
-browser set, plus JATOS 3.11.3 in Chrome on macOS. Both task modes, metadata,
-JSON/CSV uploads, and study completion have been checked on both server
-versions. Repeat these checks on the target server before collecting data.
+browser set, plus JATOS 3.11.3 in Chrome on macOS and Chrome/Firefox on Ubuntu
+via MindProbe. Both task modes, metadata, JSON/CSV uploads, and study completion
+have passed; MindProbe checks also cover JSON-only saving. See
+[Platform Support](platform-support.md) for the validated environment and build
+scope. Repeat these checks on the target server before collecting data.
 
 ## Build Output
 

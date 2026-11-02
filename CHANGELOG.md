@@ -10,6 +10,10 @@
 - Preserved underlying causes in config/file-loading errors without changing
   their user-facing messages, and added a native image-encoding regression test.
 - Confirmed JATOS 3.11.3 compatibility in Chrome on macOS for both task modes.
+- Validated both task modes in Chrome and Firefox on Ubuntu Linux in an ARM64
+  VM, including local metadata forms, JSON/CSV downloads, and post-save navigation.
+- Validated MindProbe on JATOS 3.11.3 with the same Ubuntu browsers, including
+  metadata, JSON-only and JSON/CSV uploads, and study completion.
 - Verified the updated universal macOS app on Apple Silicon for both task
   modes, image stimuli, local saving, and config-editor save/reopen.
 

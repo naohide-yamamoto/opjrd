@@ -9,14 +9,18 @@ Security fixes are considered for the latest public release of OPJRD.
 | 0.2.1 | Yes |
 | 0.2.0 and earlier | No |
 
-The current support scope is:
+The latest public release's support scope is:
 
 - macOS browser use in recent Chrome, Safari, and Firefox
 - Windows browser use in recent Chrome, Edge, and Firefox
 - the signed and notarised packaged macOS app
 - JATOS deployment on the validated JATOS workflow
 
-Windows packaged apps, Linux workflows, and mobile workflows are not supported.
+Windows packaged apps, Linux workflows, and mobile workflows are outside that
+release's validated scope. Subsequent Ubuntu browser and MindProbe validation
+applies to the unreleased development build; see
+[Platform Support](docs/platform-support.md) for details. Linux packaged apps
+remain unsupported.
 
 ## Known Dependency Limitation
 

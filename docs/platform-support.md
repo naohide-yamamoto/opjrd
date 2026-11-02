@@ -9,11 +9,17 @@ The current validated support scope is:
 
 - macOS browser use in recent Chrome, Safari, and Firefox
 - Windows browser use in recent Chrome, Edge, and Firefox
+- Ubuntu Linux browser use in Chrome and Firefox
 - a signed and notarised packaged macOS app
 - JATOS deployment on the validated JATOS workflow
 
 The packaged macOS app has been tested on Apple Silicon and Intel Mac. The
 macOS app is built as a universal app.
+
+Ubuntu validation covers an ARM64 virtual machine using GNOME and Wayland.
+Other Linux distributions, architectures, and native installations require
+further validation. The Ubuntu and MindProbe checks cover the current
+development build, not the published `v0.2.1` artefacts.
 
 ## Validated Workflows
 
@@ -21,8 +27,9 @@ macOS app is built as a universal app.
 | --- | --- |
 | macOS browser mode | Smoke-tested in Chrome, Safari, and Firefox |
 | Windows browser mode | Smoke-tested in Chrome, Edge, and Firefox |
+| Ubuntu Linux browser mode | Smoke-tested in Chrome and Firefox in an ARM64 VM |
 | Packaged macOS app | Smoke-tested on Apple Silicon and Intel Mac |
-| JATOS deployment | JATOS 3.10.5: validated macOS and Windows desktop browser set; JATOS 3.11.3: Chrome on macOS |
+| JATOS deployment | JATOS 3.10.5: validated macOS and Windows desktop browser set; JATOS 3.11.3: Chrome on macOS and Chrome/Firefox on Ubuntu via MindProbe |
 
 These checks cover both `object_placement` and `jrd` modes with representative
 example configs. Browser checks include config loading, trial execution, local
@@ -67,7 +74,9 @@ OPJRD's JATOS workflow uses `dist/jatos.html`, which loads the JATOS runtime and
 then starts the shared browser-first experiment core. Pilot-style testing has
 passed on JATOS 3.10.5 with the validated macOS and Windows desktop browser set
 in both `object_placement` and `jrd` modes. Additional smoke testing of both
-modes has passed on JATOS 3.11.3 in Chrome on macOS.
+modes has passed on JATOS 3.11.3 in Chrome on macOS. MindProbe testing on
+JATOS 3.11.3 has also passed in Chrome and Firefox on Ubuntu, including
+JSON-only and JSON/CSV saving in both task modes.
 
 Before using JATOS in a real study, repeat representative smoke testing on the
 target JATOS server and participant browser set.
@@ -77,7 +86,7 @@ target JATOS server and participant browser set.
 The current validated support scope does not claim support for:
 
 - Windows packaged apps
-- Linux browser workflows
+- Linux browser combinations beyond the Ubuntu configuration described above
 - Linux packaged apps
 - mobile platforms
 
